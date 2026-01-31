@@ -298,5 +298,237 @@ output = 3
     
 
 '''
-Q11 : 
+Q11 : Program for armstrong numbers
 '''
+
+# ++++++++++++++ Naive approach ++++++++++++++++++
+# def power(x,y):
+#     if y == 0:
+#         return 1
+#     half = power(x,y//2)
+#     if y % 2== 0:
+#         return half * half
+#     else:
+#         return x * half * half
+        
+# # function to give the number of digits
+# def count(num):
+#     num_of_digit = 0
+#     n = num
+#     while n:
+#         num_of_digit += 1
+#         n = n // 10
+#     return num_of_digit
+
+# def armstrong(num):
+#     x = count(num)
+#     sum_ = 0
+#     temp = num
+#     while temp:
+#         remainder = temp % 10
+#         sum_ += power(remainder,x)
+#         temp = temp // 10
+#     return sum_ == num
+
+# if __name__ == "__main__":
+#     n = 154
+#     if armstrong(n):
+#         print("True")
+#     else:
+#         print("False")
+        
+# ++++++++++++++ Using Numeric String ++++++++++++++++
+# def armstrong(num):
+#     num_string = str(num)
+#     num_len = len(num_string)
+#     output = 0
+#     for i in num_string:
+#         output += int(i) ** num_len
+#     return output == num
+
+# if __name__ == "__main__":
+#     n = 155
+#     if armstrong(n):
+#         print("True")
+#     else:
+#         print("False")
+
+'''
+Q 12: Factorial of number 
+''' 
+# +++++++ iterative approach +++++++++
+# def factorial(num):
+#     ans =1
+#     i = 2
+#     while i <= num:
+#         ans *= i
+#         i += 1
+#     return ans
+
+# if __name__ == "__main__":
+#     n = 5
+#     print("Factorial ",factorial(n))
+
+
+# +++++++++++++ Recursive Approach ++++++++++++
+# def factorial(n):
+#     if n == 0:
+#         return 1
+    
+#     return n * factorial(n - 1)
+
+# if __name__ == "__main__":
+#     num = 5
+#     print("Factorial ",factorial(num))
+
+
+'''
+Q13: Check if an Array is Sorted
+'''
+# +++++++ Recursive Approach +++++++
+
+# def check_sorted_array(arr:list,arr_len:int):
+#     # arr_len = len(arr)
+#     if arr_len <= 1:
+#         return True
+#     return (arr[arr_len -1] >= arr[arr_len - 2] and check_sorted_array(arr,arr_len-1))
+
+
+# if __name__ == "__main__":
+#     arr = [1,3,4,5]
+#     if check_sorted_array(arr,len(arr)):
+#         print("Sorted")
+#     else:
+#         print("not sorted")
+
+
+# ++++++++ Iterative Approach ++++++++++
+
+# def check_sorted_array(arr:list):
+#     n = len(arr)
+#     if len(arr) <= 1:
+#         return True
+    
+#     for i in range(1,n):
+#         if arr[i-1] > arr[i]:
+#             return False
+#     return True
+
+
+
+# if __name__ == "__main__":
+    
+#     arr = [1,4,3,4]
+#     if check_sorted_array(arr):
+#         print("Sorted")
+#     else:
+#         print("Not Sorted")
+
+
+'''
+Q14: program for multiplication table
+'''
+
+# ++++++++++ iterative approach ++++++++++++++++
+
+# def table(n):
+#     if n <= 0:
+#         return 1
+#     for i in range(1,11):
+#         print(f"{n} * {i} = {n*i}")
+
+
+# if __name__ == "__main__":
+#     n = 999
+#     table(n)
+        
+    
+# ++++++++++++++ Recursive Approach ++++++++++++++
+# def table(n,i = 1):
+#     if i == 11:
+#         return
+#     print(f"{n} * {i} = {n*i}")
+#     i += 1
+#     return table(n,i)
+
+# if __name__ == "__main__":
+#     n = 6
+#     table(n)
+
+'''
+Q15: check if a word is present in the sentence
+'''
+# def check_word(sentence:str,word:str)->bool:
+#     sentence_list = sentence.lower().split(" ")
+#     return True if word.lower() in sentence_list else False
+
+
+
+# if __name__ == "__main__":
+#     sentence = "Geeks for Geeks"
+#     word = "for"
+#     if check_word(sentence=sentence,word=word):
+#         print("Yes")
+#     else:
+#         print("No")
+        
+
+'''
+Q16: Segregate 0 and 1 in array
+'''
+
+# ++++++++++++++= Two Traversal ++++++++++++++++++
+# def segregate_zero_and_one(arr:list,n:int):
+#     count = 0
+#     for i in range(0,n):
+#         if arr[i] == 0:
+#             count += 1
+    
+#     # Loop to fill the array with zero until count become
+#     for i in range(0,count):
+#         arr[i] = 0
+    
+    
+#     # Fill the remaining space with 1 in the array 
+#     for i in range(count,n):
+#         arr[i]  = 1
+    
+
+# def print_segregated_array(arr,n):
+#     print("Array after segregation is = ",end=" ")
+#     for i in range(0,n):
+#         print(arr[i] , end=" ")
+        
+
+# if __name__ == "__main__":
+#     arr = [ 0, 1, 0, 1, 1, 1 ]
+#     n = len(arr)
+#     segregate_zero_and_one(arr,n)
+#     print_segregated_array(arr,n)
+
+
+# +++++++++++ One Traversal ++++++++++++++++++
+def segregate_zero_and_one(arr:list,n:int):
+    low_index = 0
+    high_index = n-1
+    
+    while low_index < high_index:
+        
+
+        # increment the value of low_index till you find 0
+        while arr[low_index] == 0 and low_index < high_index:
+            low_index += 1
+        
+        
+        # decrement the value of high_index till you find 1
+        while arr[high_index] == 1 and low_index < high_index:
+            high_index -= 1
+
+        if low_index < high_index:
+            arr[low_index],arr[high_index] = arr[high_index],arr[low_index]
+            
+if __name__ == "__main__":
+    arr = [0, 1, 0, 1, 1, 1]
+    segregate_zero_and_one(arr,len(arr))
+    print("Array after segregation using one traversal ",arr)
+    
