@@ -260,14 +260,14 @@ output = 45
 # print("Maximum element of matrix 1 ", max_elem_from_matrix(matrix=matrix1))
 # print("Maximum element of matrix 2 ", max_elem_from_matrix(matrix=matrix2))
 
-'''
+"""
 Q10: Sum of digits of number
 input1 =  687
 output = 21
 input2 = 12
 output = 3
-'''
-#+++++++++++++++++ (I) iterative approach ++++++++++++++++++++++++
+"""
+# +++++++++++++++++ (I) iterative approach ++++++++++++++++++++++++
 # def sum_of_nums(num:int):
 #     n = num
 #     num_sum = 0
@@ -282,24 +282,23 @@ output = 3
 # print("sum of input 2 ",sum_of_nums(num2))
 
 
-
 # +++++++++++++++++++ Recursive Approach +++++++++++++++++++++++
 # def sum_of_nums(nums:int):
 #     n = nums
 #     if n == 0:
 #         return 0
-    
+
 #     return n % 10 + sum_of_nums(n // 10)
 
 # num1 = 687
 # num2 = 12
 # print("sum of input 1 ",sum_of_nums(num1))
 # print("sum of input 2 ",sum_of_nums(num2))
-    
 
-'''
+
+"""
 Q11 : Program for armstrong numbers
-'''
+"""
 
 # ++++++++++++++ Naive approach ++++++++++++++++++
 # def power(x,y):
@@ -310,7 +309,7 @@ Q11 : Program for armstrong numbers
 #         return half * half
 #     else:
 #         return x * half * half
-        
+
 # # function to give the number of digits
 # def count(num):
 #     num_of_digit = 0
@@ -336,7 +335,7 @@ Q11 : Program for armstrong numbers
 #         print("True")
 #     else:
 #         print("False")
-        
+
 # ++++++++++++++ Using Numeric String ++++++++++++++++
 # def armstrong(num):
 #     num_string = str(num)
@@ -353,9 +352,9 @@ Q11 : Program for armstrong numbers
 #     else:
 #         print("False")
 
-'''
+"""
 Q 12: Factorial of number 
-''' 
+"""
 # +++++++ iterative approach +++++++++
 # def factorial(num):
 #     ans =1
@@ -374,7 +373,7 @@ Q 12: Factorial of number
 # def factorial(n):
 #     if n == 0:
 #         return 1
-    
+
 #     return n * factorial(n - 1)
 
 # if __name__ == "__main__":
@@ -382,9 +381,9 @@ Q 12: Factorial of number
 #     print("Factorial ",factorial(num))
 
 
-'''
+"""
 Q13: Check if an Array is Sorted
-'''
+"""
 # +++++++ Recursive Approach +++++++
 
 # def check_sorted_array(arr:list,arr_len:int):
@@ -408,16 +407,15 @@ Q13: Check if an Array is Sorted
 #     n = len(arr)
 #     if len(arr) <= 1:
 #         return True
-    
+
 #     for i in range(1,n):
 #         if arr[i-1] > arr[i]:
 #             return False
 #     return True
 
 
-
 # if __name__ == "__main__":
-    
+
 #     arr = [1,4,3,4]
 #     if check_sorted_array(arr):
 #         print("Sorted")
@@ -425,9 +423,9 @@ Q13: Check if an Array is Sorted
 #         print("Not Sorted")
 
 
-'''
+"""
 Q14: program for multiplication table
-'''
+"""
 
 # ++++++++++ iterative approach ++++++++++++++++
 
@@ -441,8 +439,8 @@ Q14: program for multiplication table
 # if __name__ == "__main__":
 #     n = 999
 #     table(n)
-        
-    
+
+
 # ++++++++++++++ Recursive Approach ++++++++++++++
 # def table(n,i = 1):
 #     if i == 11:
@@ -455,13 +453,12 @@ Q14: program for multiplication table
 #     n = 6
 #     table(n)
 
-'''
+"""
 Q15: check if a word is present in the sentence
-'''
+"""
 # def check_word(sentence:str,word:str)->bool:
 #     sentence_list = sentence.lower().split(" ")
 #     return True if word.lower() in sentence_list else False
-
 
 
 # if __name__ == "__main__":
@@ -471,11 +468,11 @@ Q15: check if a word is present in the sentence
 #         print("Yes")
 #     else:
 #         print("No")
-        
 
-'''
+
+"""
 Q16: Segregate 0 and 1 in array
-'''
+"""
 
 # ++++++++++++++= Two Traversal ++++++++++++++++++
 # def segregate_zero_and_one(arr:list,n:int):
@@ -483,22 +480,22 @@ Q16: Segregate 0 and 1 in array
 #     for i in range(0,n):
 #         if arr[i] == 0:
 #             count += 1
-    
+
 #     # Loop to fill the array with zero until count become
 #     for i in range(0,count):
 #         arr[i] = 0
-    
-    
-#     # Fill the remaining space with 1 in the array 
+
+
+#     # Fill the remaining space with 1 in the array
 #     for i in range(count,n):
 #         arr[i]  = 1
-    
+
 
 # def print_segregated_array(arr,n):
 #     print("Array after segregation is = ",end=" ")
 #     for i in range(0,n):
 #         print(arr[i] , end=" ")
-        
+
 
 # if __name__ == "__main__":
 #     arr = [ 0, 1, 0, 1, 1, 1 ]
@@ -508,27 +505,175 @@ Q16: Segregate 0 and 1 in array
 
 
 # +++++++++++ One Traversal ++++++++++++++++++
-def segregate_zero_and_one(arr:list,n:int):
-    low_index = 0
-    high_index = n-1
+# def segregate_zero_and_one(arr:list,n:int):
+#     low_index = 0
+#     high_index = n-1
+
+#     while low_index < high_index:
+
+
+#         # increment the value of low_index till you find 0
+#         while arr[low_index] == 0 and low_index < high_index:
+#             low_index += 1
+
+
+#         # decrement the value of high_index till you find 1
+#         while arr[high_index] == 1 and low_index < high_index:
+#             high_index -= 1
+
+#         if low_index < high_index:
+#             arr[low_index],arr[high_index] = arr[high_index],arr[low_index]
+
+# if __name__ == "__main__":
+#     arr = [0, 1, 0, 1, 1, 1]
+#     segregate_zero_and_one(arr,len(arr))
+#     print("Array after segregation using one traversal ",arr)
+
+
+"""
+Q17: Write a program to divide array or list in given numbers
+"""
+# class DivideList:
+#     def __init__(self,arr:list,n:int):
+#         self.arr = arr
+#         self.n = n
+#         self.result = []
+#         self.num_of_list = self.number_of_list()
+#     def number_of_list(self) -> int:
+#         length = len(self.arr)
+#         # result = []
+#         start = 0
+
+#         for i in range(self.n):
+#             part_size = length // self.n + (1 if i < length % self.n else 0)
+#             self.result.append(self.arr[start:start + part_size])
+#             start += part_size
+
+#         return len(self.result)
+
+#     def get_given_list(self,n:int) -> list:
+#         return self.result[n]
+
+
+# if __name__ == "__main__":
+#     li = [1,2,3,4,3,2,4,5,5,7,94,9,13,6]
+#     four_pages = DivideList(li,4)
+
+#     print("Number of lists ",four_pages.num_of_list)
+
+
+#     print("Given List ",four_pages.get_given_list(3))
+
+"""
+Q18: write a program to reverse digits of numbers
+"""
+
+# +++++++++ iterative approach ++++++++++++++++++
+# def reverse_digits(num:int) -> int:
+#     n = num
+#     reverse_num = 0
+#     while n != 0:
+#         reverse_num = reverse_num * 10 + n % 10
+#         n = n // 10
+#     return reverse_num
+
+# if __name__ == "__main__":
+#     num = 200
+#     print("Reversed number ",reverse_digits(num=num))
+
+# +++++++++++++ Recursive approach ++++++++++++++++++++
+# def reverse_digits(num:int, rev_num:int,base_pos:int):
+#     if num > 0:
+#         reverse_digits(num//10,rev_num,base_pos)
+#         rev_num[0] += (num % 10) * base_pos[0]
+#         base_pos[0] *= 10
+
+
+# if __name__ == "__main__":
+#     num = 123
+#     rev_num = [0]
+#     base_pos = [1]
+#     reverse_digits(num=num,rev_num=rev_num,base_pos=base_pos)
+#     print("Reverse num ",rev_num)
+
+
+# def reverse_digits(num: int, reverse_num: int = 0) -> int:
+#     if num == 0:
+#         return reverse_num
+#     reverse_num = reverse_num * 10 + num % 10
+#     return reverse_digits(num // 10, reverse_num)
+
+
+# if __name__ == "__main__":
+#     num = 123
+#     print("Reversed number ", reverse_digits(num=num))
+
+
+'''
+Q18: Second largest element in an array
+Input: arr[] = [12, 35, 1, 10, 34, 1]
+Output: 34
+
+Input: arr[] = [10, 5, 10]
+Output: 5
+
+Input: arr[] = [10, 10, 10]
+Output: -1
+'''
+
+# +++++++++++ Sorting approach (Ascending order) +++++++++++++
+# def second_largest(arr:list):
+#     n = len(arr)
+#     arr.sort()
     
-    while low_index < high_index:
+#     for i in range(n - 2,-1,-1):
         
+#         if arr[i] != arr[n -1]:
+#             return arr[i]
+#         return -1
 
-        # increment the value of low_index till you find 0
-        while arr[low_index] == 0 and low_index < high_index:
-            low_index += 1
-        
-        
-        # decrement the value of high_index till you find 1
-        while arr[high_index] == 1 and low_index < high_index:
-            high_index -= 1
+# if __name__ == "__main__":
+#     arr = [12, 35, 1, 10, 34, 1]
+#     print("Second largest element ",second_largest(arr=arr))
 
-        if low_index < high_index:
-            arr[low_index],arr[high_index] = arr[high_index],arr[low_index]
+# ++++++++++++ Two pass search approach ++++++++++++++++++
+# def second_largest(arr:list):
+#     largest_element = -1
+#     second_largest_element = -1
+#     for element in arr:
+#         if element > largest_element:
+#             largest_element = element
+#     for element in arr:
+#         if element > second_largest_element and element != largest_element:
+#             second_largest_element = element
+    
+#     return second_largest_element
+# if __name__ == "__main__":
+#     arr = [10, 10, 10]
+#     print("Second largest element ",second_largest(arr=arr))
+    
+
+# ++++++++++++++++++ One pass Search +++++++++++++++++++++
+# def second_largest(arr:list):
+#     largest_element = -1
+#     second_largest_element = -1
+#     arr_len = len(arr)
+#     for i in range(0,arr_len,1):
+        
+#         # if arr[i] is greater than largest_element the second_largest_element = largest_element and largest_element = arr[i]
+#         if arr[i] > largest_element:
+#             second_largest_element = largest_element
+#             largest_element = arr[i]
             
-if __name__ == "__main__":
-    arr = [0, 1, 0, 1, 1, 1]
-    segregate_zero_and_one(arr,len(arr))
-    print("Array after segregation using one traversal ",arr)
-    
+#         elif arr[i] < largest_element and arr[i] > second_largest_element:
+#             second_largest_element = arr[i]
+#     return second_largest_element
+
+# if __name__ == "__main__":
+#     arr = [12, 35, 1, 10, 34, 1]
+#     print("Second largest element in the array ",second_largest(arr=arr))
+
+
+
+
+
