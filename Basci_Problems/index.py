@@ -675,5 +675,51 @@ Output: -1
 
 
 
+'''
+Q19: Factor of given number
+'''
 
+# +++++++++ iterative approach =+++++++++++++++++
+# def factors_of_number(num:int)->list:
+#     n = 1
+#     result = []
+#     while n <= num:
+#         if num % n == 0:
+#             result.append(n)
+#         n += 1
+#     return result
+# if __name__ == "__main__":
+#     num = 10
+#     print(f"Factors of number {num} is =>  ",factors_of_number(num=num))
+    
+    
+# # ++++++++++++ Better approach (loop only till the half of the given number) ++++++++++++++
+# def factors_of_number(num:int) -> list:
+#     result = []
+#     for i in range(1,(num//2)+1):
+#         if num % i == 0:
+#             result.append(i)
+#     result.append(num)
+#     return result
 
+# if __name__ == "__main__":
+#     num = 36
+#     print("Factors of given number is ",factors_of_number(num=num))
+
+# ++++++++++++++++++ optimal approach +++++++++++++++++++++++++
+# from math import sqrt
+# def factors_of_number(num:int) -> list:
+#     result  = []
+#     for  i in range(1,int(sqrt(num))+1):
+#         if num  % i == 0:
+#             result.append(i)
+        
+#             if num // i != i:
+#                 result.append(num//i)
+#     result.sort()
+#     return result
+
+# if __name__ == "__main__":
+#     num = 36
+#     print("Factor of numbers are ",factors_of_number(num=num))
+        
