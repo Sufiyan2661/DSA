@@ -206,11 +206,120 @@ Output: [2, 1, 5, 4]
 #     right = n - 1
 #     for i in range(0, n // 2):
 #         arr[left],arr[right] = arr[right],arr[left]
-#         left +=1 
+#         left +=1
 #         right -= 1
 #     return arr
 
 # if __name__ == "__main__":
 #     arr = [1, 4, 3, 2, 6, 5]
 #     print("Before Reversing => ",arr)
-#     print("After Reversing => ",reverse_array(arr=arr))
+#     print("After Reversing => ",reverse_array(arr=
+
+
+"""
+Q 4 : Reverse array in groups of given sizes
+
+Input: arr[] = [1, 2, 3, 4, 5, 6, 7, 8], k = 3
+Output: [3, 2, 1, 6, 5, 4, 8, 7]
+
+Input: arr[] = [1, 2, 3, 4, 5], k = 3
+Output: [3, 2, 1, 5, 4]
+
+Input: arr[] = [5, 6, 8, 9], k = 5
+Output: [9, 8, 6, 5]
+
+
+"""
+
+# ++++++++++++++ Fixed-Size group reversal ++++++++++++++++
+# def group_reversal(arr:list,k:int) -> list:
+#     n = len(arr)
+#     i = 0
+#     while i < n:
+#         left = i
+
+#         # to handle case when k is not multiple of n
+#         right = min(i + k - 1,n -1)
+
+
+#         # reverse the sub array
+#         while left < right:
+#             arr[left],arr[right] = arr[right],arr[left]
+
+#             left += 1
+#             right -= 1
+
+#         i += k
+#     return arr
+
+# if __name__ == "__main__":
+#     arr = [1, 2, 3, 4, 5, 6, 7, 8]
+#     k = 3
+#     print("After reversing in groups ",group_reversal(arr=arr,k=k))
+
+
+"""
+Q 5 : Rotate an array by d - CounterClockwise or left 
+Output: {3, 4, 5, 6, 1, 2}
+Explanation: After first left rotation, arr[] becomes {2, 3, 4, 5, 6, 1} and after the second rotation, arr[] becomes {3, 4, 5, 6, 1, 2}
+
+Input: arr[] = {1, 2, 3}, d = 4
+Output: {2, 3, 1}
+Explanation: The array is rotated as follows:
+
+After first left rotation, arr[] = {2, 3, 1}
+After second left rotation, arr[] = {3, 1, 2}
+After third left rotation, arr[] = {1, 2, 3}
+After fourth left rotation, arr[] = {2, 3, 1}
+"""
+
+
+# +++++++++++++++ Naive approach (rotate one by one) +++++++++++++++++++
+# def rotate_array_by_d(arr:list,d:int) -> list:
+#     n  = len(arr)
+    
+#     for i in range(d):
+        
+#         first = arr[0]
+#         for j in range(0,n - 1):
+#             arr[j] = arr[j + 1]
+#         arr[n - 1] = first
+#     return arr
+
+# if __name__ == "__main__":
+#     arr = [1,2,3,4,5]
+#     d = 2
+#     print("After rotation to the left ",rotate_array_by_d(arr=arr,d=d))
+
+
+# ++++++++++++++++ Better approach (Using temporary array ) ++++++++++++++++++++
+# def rotate_array(arr:list,d:int) -> list:
+#     n = len(arr)
+#     temp_array = [0] * n
+    
+#     d %= n
+    
+#     # Copy last n - d elements to the fron of temp_array 
+#     for i in range(n - d):
+#         temp_array[i] = arr[d + i]
+    
+    
+#     # copy the first d elements to the back of the temp_array
+    
+#     for i in range(d):
+#         temp_array[n - d + i] = arr[i]
+    
+    
+#     # copying the elements of temp_arr in arr to get the final rotated array
+#     for i in range(n):
+#         arr[i] = temp_array[i]
+
+
+# if __name__ == "__main__":
+#     arr = [1,2,3,4,5]
+#     d = 2
+#     rotate_array(arr=arr,d=d)
+#     for elem in arr:
+#         print(elem,end=' ')
+#     # print("Array after rotation ",rotate_array(arr=arr,d=d)) 
+    
