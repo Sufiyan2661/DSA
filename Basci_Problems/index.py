@@ -942,7 +942,11 @@ operations for sc:
 #     return result
 '''
 operations for tc:
-    for i in range(1,(num//2)+1) -> takes n/2 iteration for constant operation inside loop
+    for i in range(1,(num//2)+1) -> takes n/2 iteration for constant operation inside loop tc = O(n/2) we ignore constant when calculating tc so tc = O(n)
+    tc = O(n)
+operations for sc:  
+    result = [] this will take upto n number of space 
+    sc = O(n)
 '''
 
 # if __name__ == "__main__":
@@ -961,6 +965,10 @@ operations for tc:
 #                 result.append(num//i)
 #     result.sort()
 #     return result
+'''
+tc = O(n)
+sc = O(n)
+'''
 
 # if __name__ == "__main__":
 #     num = 36
