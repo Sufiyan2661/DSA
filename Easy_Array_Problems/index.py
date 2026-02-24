@@ -19,6 +19,18 @@ Output: -1
 #             return arr[i]
 #     return -1
 
+"""
+operations for tc:
+    n = len(arr) takes constan times O(1)
+    arr.sort() the worst case can take upto O(n log n)
+    for i in range(n - 2,-1,-1) iterating lenearly in reverse order so it can take n number of iterations to perform constant taks O(n)
+    tc = O(1) + O(n log n) + O(n) = O(n log n)
+operations for sc:
+    n = len(arr) takes constant space O(1)
+    arr.sort() can takes upto n number of space in the worst case O(n)
+    sc = O(1) + O(n) = O(n)
+"""
+
 
 # if __name__ == "__main__":
 #     arr = [10, 5, 10]
@@ -39,6 +51,11 @@ Output: -1
 
 #     return largest,second_largest
 
+
+"""
+tc = O(n)
+sc = O(1)
+"""
 # if __name__ == "__main__":
 #     arr = [10, 10, 10]
 #     _,second_largest = second_largest_element(arr=arr)
@@ -57,6 +74,11 @@ Output: -1
 #             second_largest = elem
 #     return largest,second_largest
 
+"""
+tc = O(n)
+sc = O(1)
+"""
+
 # if __name__ == "__main__":
 #     arr = [10, 10, 10]
 #     _,second_largest = second_largest_element(arr=arr)
@@ -72,6 +94,10 @@ Output: -1
 #     elif arr[i] < largest and arr[i] > second_largest:
 #         second_largest = arr[i]
 #     return second_largest_element(arr=arr,i= i+1,largest=largest,second_largest=second_largest)
+"""
+tc = O(n)
+sc = O(n) the variables stays in the call untill it reaches base 
+"""
 
 # if __name__ == "__main__":
 #     arr = [10, 10, 10]
@@ -79,6 +105,7 @@ Output: -1
 #     print("Second largest element ",second_largest)
 
 """
+
 Q2: Third largest element in an array of distinct elements
 Input: arr[] = {1, 14, 2, 16, 10, 20}
 Output: 14
@@ -97,6 +124,10 @@ Output: 16
 #             return arr[i]
 
 #     return -1
+"""
+tc = O(n)
+sc = O(1)
+"""
 
 # if __name__ == "__main__":
 #     arr = [19, -10, 20, 14, 2, 16, 10]
@@ -124,6 +155,10 @@ Output: 16
 
 #     return largest,second_largest,third_largest
 
+"""
+tc = O(n)
+sc = O(1)
+"""
 
 # if __name__ == "__main__":
 #     arr = [19, -10, 20, 14, 2, 16, 10]
@@ -151,6 +186,12 @@ Output: 16
 
 #     return largest,second_largest,third_largest
 
+"""
+tc = O(n)
+sc = O(1)
+
+"""
+
 # if __name__ == "__main__":
 #     arr = [19, -10, 20, 14, 2, 16, 10]
 #     _,_,third_largest = third_largest_element(arr=arr)
@@ -176,6 +217,21 @@ Output: [2, 1, 5, 4]
 #     for i in range(n-1, -1, -1):
 #         temp_arr.append(arr[i])
 #     return temp_arr
+"""
+operations for tc:
+    n = len(arr) takes constant time because len initialize when data structure is used so O(1)
+    temp_arr = [0] * n takes constant time O(1)
+    for i in range(n-1,-1,-1) iterate linearly so if array has n number of elements it can take n number of time to iterate O(n)
+    temp_arr.append(arr[i]) takes constant time O(1)
+    tc = O(1) + O(1) + O(n) + O(1) = O(n)
+    tc = O(n)
+operations for sc:
+    n = len(arr) takes constant space O(1)
+    temp_arr = [0] * n here it takes n number of space because size grows as the input grows so it takes O(n) space
+    i for iterating takes constant space in each iteration O(1)
+    sc = O(1) + O(n) O(1) = O(n)
+    sc = O(n)
+"""
 
 # if __name__ == "__main__":
 #     arr = [1, 4, 3, 2, 6, 5]
@@ -192,6 +248,22 @@ Output: [2, 1, 5, 4]
 #         left += 1
 #         right -=1
 #     return arr
+"""
+operations for tc:
+    n = len(arr) takes constant time O(1)
+    left = 0 takes constatn time O(1)
+    right = n - 1 takes constant time O(1)
+    while left < right it take iterate n times if array has n elements right  = n -1 so it iterate upto O(n - 1) so tc for this operation is O(n)
+    arr[left],arr[right] = arr[right],arr[left] takes constant time 
+    left += 1 takes constant time
+    right -= 1 takes constant time
+operations for sc :
+    n = len(arr) takes constant time O(1)
+    left = 0 takes constatn time O(1)
+    right = n - 1 takes constant time O(1)
+    sc = O(1) + O(1) + O(1) = O(1)
+
+"""
 
 # if __name__ == "__main__":
 #     arr = [1, 4, 3, 2, 6, 5]
@@ -277,9 +349,9 @@ After fourth left rotation, arr[] = {2, 3, 1}
 # +++++++++++++++ Naive approach (rotate one by one) +++++++++++++++++++
 # def rotate_array_by_d(arr:list,d:int) -> list:
 #     n  = len(arr)
-    
+
 #     for i in range(d):
-        
+
 #         first = arr[0]
 #         for j in range(0,n - 1):
 #             arr[j] = arr[j + 1]
@@ -296,20 +368,20 @@ After fourth left rotation, arr[] = {2, 3, 1}
 # def rotate_array(arr:list,d:int) -> list:
 #     n = len(arr)
 #     temp_array = [0] * n
-    
+
 #     d %= n
-    
-#     # Copy last n - d elements to the fron of temp_array 
+
+#     # Copy last n - d elements to the fron of temp_array
 #     for i in range(n - d):
 #         temp_array[i] = arr[d + i]
-    
-    
+
+
 #     # copy the first d elements to the back of the temp_array
-    
+
 #     for i in range(d):
 #         temp_array[n - d + i] = arr[i]
-    
-    
+
+
 #     # copying the elements of temp_arr in arr to get the final rotated array
 #     for i in range(n):
 #         arr[i] = temp_array[i]
@@ -321,5 +393,388 @@ After fourth left rotation, arr[] = {2, 3, 1}
 #     rotate_array(arr=arr,d=d)
 #     for elem in arr:
 #         print(elem,end=' ')
-#     # print("Array after rotation ",rotate_array(arr=arr,d=d)) 
+#     # print("Array after rotation ",rotate_array(arr=arr,d=d))
+
+"""
+Q5 Maximum product of triplet (subsequence of size 3) in array
+Input:  arr[ ] = [10, 3, 5, 6, 20]
+Output: 1200
+Explanation: Multiplication of 10, 6 and 20
+
+Input:  arr[ ] =  [-10, -3, -5, -6, -20]
+Output: -90
+
+Input: arr[ ] =  [1, -4, 3, -6, 7, 0]
+Output: 168
+"""
+# +++++++++++++++++++++ Naive approach (nested iteration) +++++++++++++++++++++++++++++
+# def max_prod_of_triplet(arr:list) -> None:
+#     n = len(arr)
+
+#     max_product = -10**9
+#     for i  in range(n-2):
+#         for j in range(i+1,n-1):
+#             for k in range(j+1,n):
+#                 max_product = max(max_product,arr[i] * arr[j] * arr[k])
+#     return max_product
+"""
+operations for tc:
+    n = len(arr) takes constant time because it already created when using any data structure O(1)
+    for i  in range(n-2) takes n - 2 times to iterate so it is O(n)
+    for j in range(i+1,n-1) it statrt i + 1 and iterate till n - 1 for each iteration for i it iterate till n O(n)
+    for k in range(j+1,n) it also depends of iteration of k so if array has n elements it can also go upto n elements O(n)
+    max_product = max(max_product,arr[i] * arr[j] * arr[k]) its takes a constatn operation O(1)
+    tc = O(1) + O(n) * O(n) * O(n) * O(n) * O(1) don`t count constants when calculating tc
+    tc = O(n) * O(n) * O(n) * O(n)
+    tc = O(n3)
+operations of sc:
+    max_product this is the only variables beside input and it is constant and doesn`t grow according to the input so the space complexity of this code is O(1)
+    sc = O(1)
+"""
+# if __name__ == "__main__":
+#     arr = [10, 3, 5, 6, 20]
+#     print("triplet ",max_prod_of_triplet(arr=arr))
+
+
+# +++++++++++++++ Better approach (By using sorting) ++++++++++++++++++++
+# def max_prod_of_triplet(arr: list) -> None:
+#     n = len(arr)
+#     arr.sort()
+#     # print("arr of 0 ",arr[0],"array of 1",arr[1],"array of n - 1",arr[n-1],"array of n - 2",arr[n -2],"array of n - 3",arr[n - 3])
+#     return max(arr[0] * arr[1] * arr[n - 1], arr[n - 1] * arr[n - 2] * arr[n - 3])
+
+
+"""
+operations of tc:
+    n = len(arr) takes constant time
+    arr.sort() .sort() can takes upto O(n log n) in worst case so O(n log n)
+    return max(arr[0] * arr[1] * arr[n - 1], arr[n - 1] * arr[n - 2] * arr[n - 3]) takes constant time O(1)
+    tc = O(n log n)
+operations for sc:
+    n = len(arr) taking variable n to store the length of array it takes constant space O(1)
+    sc = O(1)
+"""
+# if __name__ == "__main__":
+#     arr = [10, 3, 5, 6, 20]
+#     print("max of triplet ",max_prod_of_triplet(arr=arr))
+
+
+# ++++++++++++ Expected approach (By using  greedy approach ) ++++++++++
+# def max_prod_of_triplet(arr: list):
+#     largest = 0
+#     second_largest = 0
+#     third_largest = 0
+#     for elem in arr:
+#         if elem > largest:
+#             third_largest = second_largest
+#             second_largest = largest
+#             largest = elem
+
+#         elif elem > second_largest and elem < largest:
+#             third_largest = second_largest
+#             second_largest = elem
+
+#         elif elem > third_largest and elem < largest and elem < second_largest:
+#             third_largest = elem
+
+#     return largest * second_largest * third_largest
+"""
+operations for tc:
+    initializing three variables for storing largest,second_largest,and  third_largest takes constant time O(1)
+    for elem in arr here i perform iteration for each element if the array has n elements then iteration takes n time to perform each constant operations inside the loop O(n)
+    tc = O(n)
+operations for sc:
+    initializing three variables for storing largest,second_largest,and  third_largest takes constant space O(1)
+    sc = O(1)
+"""
+# if __name__ == "__main__":
+#     arr = [10, 3, 5, 6, 20]
+#     print("maximum product of triplet ", max_prod_of_triplet(arr=arr))
+
+
+"""
+Q6 : Maximum consecutive one’s (or zeros) in a binary array
+Input: arr[] = [0, 1, 0, 1, 1, 1, 1]
+Output: 4
+Explanation: The maximum number of consecutive 1’s in the array is 4 from index 3-6.
+
+Input: arr[] = [0, 0, 1, 0, 1, 0]
+Output: 2
+Explanation: The maximum number of consecutive 0’s in the array is 2 from index 0-1.
+
+Input: arr[] = [0, 0, 0, 0]
+Output: 4
+Explanation: The maximum number of consecutive 0’s in the array is 4.
+"""
+
+# ++++++++++++++++++++ Using simple traversal ++++++++++++=
+# def most_consecutive_bits(arr:list):
+#     max_streak_of = 0
+#     count = 0
+#     n = len(arr)
+#     for i in range(n -1):
+#         if arr[i] == arr[n - 1]:
+#             count+=1
+#         else:
+#             max_streak_of =  max(max_streak_of,count)
+#             count = 1
+#     print("max streak of ",max_streak_of)
+#     print("max count ",count)
+#     return max(max_streak_of,count)
+
+"""
+operations for tc:
+    initializing three variables max_streak_of , count , n takes constant time O(1)
+    for i in range(n-1) iterating array and performing constant operations on each iteration and iteration can happen in worst case takes O(n)
+    tc = O(1) + O(n)
+    tc = O(n)
+operations for sc:
+    initializing only three variables takes constant space O(1)
+    sc = O(1)
+"""
+
+
+# if __name__ == "__main__":
+#     arr = [0, 1, 0, 1, 1, 1, 1]
+#     print(most_consecutive_bits(arr=arr))
+
+"""
+Q7: Move all Zeros to End of Array
+Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
+Output: [1, 2, 4, 3, 5, 0, 0, 0]
+Explanation: There are three 0s that are moved to the end.
+
+Input: arr[] = [10, 20, 30]
+Output: [10, 20, 30]
+Explanation: No change in array as there are no 0s.
+
+Input: arr[] = [0, 0]
+Output: [0, 0]
+Explanation: No change in array as there are all 0s.
+"""
+# +++++++++++++++ Naive approach (Using temporary array )
+# def move_zero_to_end(arr:list)->list:
+#     n = len(arr)
+#     temp = [0] * n
+#     # to track the index
+#     j = 0
+#     for i in range(n):
+#         if arr[i] != 0:
+#             temp[j] = arr[i]
+#             j += 1
+#     while j < n:
+#         arr[j] = 0
+#         j +=1
+
+#     for i in range(n):
+#         arr[i] = temp[i]
+#     return arr
+"""
+tc = O(n)
+sc = O(n)
+"""
+# if __name__ == "__main__":
+#     arr = [1, 2, 0, 4, 3, 0, 5, 0]
+#     print("list zeros in the end ",move_zero_to_end(arr=arr))
+
+# +++++++++++++ Better approach (Two traversal) +++++++++++
+# def move_zero_to_end(arr:list) -> list:
+#     count = 0
+#     n = len(arr)
+#     for i in range(n):
+#         if arr[i] != 0:
+#             arr[count] = arr[i]
+#             count +=1
+#     while count < n:
+#         arr[count] = 0
+#         count +=1
+#     return arr
+"""
+operations for tc:
+    initializing three variables takes constant time O(1)
+    for i in range(n) iterating till n number of elements take n times to perform constant operations in each iteration O(n)
+    while count < n then iterating till n if the array has n number of zeros it can iterate upto n so in worst case it can take n times to perform constant operation on each iteration O(n)
+    tc = O(1) + O(n) + O(n) = O(2n) here we ignore constant 
+    tc = O(n)
+operations for sc:
+    initializing three variables takes constant space O(1)
+    sc = O(1)
     
+"""
+# if __name__ == "__main__":
+#     arr = [1, 2, 0, 4, 3, 0, 5, 0]
+#     print("Move zero`s to end ",move_zero_to_end(arr=arr))
+
+# ++++++++++++++++ Expected approach (one traversal) +++++++++++++
+# def move_zeor_to_end(arr:list) -> list:
+#     count = 0
+#     n = len(arr)
+#     for i in range(n):
+
+#         if arr[i] != 0:
+#             arr[i],arr[count] = arr[count],arr[i]
+#             count +=1
+#     return arr
+"""
+TC = O(n)
+SC = O(1)
+"""
+
+# if __name__ == "__main__":
+#     arr = [1, 2, 0, 4, 3, 0, 5, 0]
+#     print("Moved zeor to end ",move_zeor_to_end(arr=arr))
+
+# ++++++++++++++ one traversal approach (with creating another arr of the size n of input arr) ++++++++++++++
+# def move_zero_to_end(arr:list) ->list:
+#     n = len(arr)
+#     j = 0
+#     new_arr = [0] * n
+#     for i in range(n):
+#         if arr[i] != 0:
+#             new_arr[j] = arr[i]
+#             j += 1
+#     return new_arr
+
+"""
+TC = O(n)
+SC = O(1)
+"""
+# if __name__ == "__main__":
+#     arr = [1, 2, 0, 4, 3, 0, 5, 0]
+#     print("Moved zeor to end ",move_zero_to_end(arr=arr))
+
+
+"""
+Q8: Sort an array in wave form
+Input: arr[] = [1, 2, 3, 4, 5]
+Output: [2, 1, 4, 3, 5]
+Explanation: Array elements after sorting it in the waveform are 2, 1, 4, 3, 5.
+
+Input: arr[] = [2, 4, 7, 8, 9, 10]
+Output: [4, 2, 8, 7, 10, 9]
+Explanation: Array elements after sorting it in the waveform are 4, 2, 8, 7, 10, 9.
+"""
+
+
+# def sort_in_wave(arr: list) -> None:
+#     n = len(arr)
+#     for i in range(0,n-1,2):
+#         arr[i],arr[i+1] = arr[i+1],arr[i]
+"""
+TC = O(n)
+SC = O(1)
+"""
+# if __name__ == "__main__":
+#     arr = [1,2,3,4,5]
+#     sort_in_wave(arr=arr)
+#     print("array after sorted in wave ",arr)
+
+
+"""
+Q8 adding one to number represented as array of digits
+Input : [1, 2, 4]
+Output : 125
+Explanation: 124 + 1 = 125 
+
+Input : [9, 9, 9]
+Output: 1000
+Explanation: 999 + 1 = 1000 
+"""
+# def add_one_number(arr:list)->int:
+#     carry = 1
+#     for i in range(len(arr)-1,-1,-1):
+#         sum_ = arr[i] + carry
+#         arr[i] = sum_ % 10
+#         carry = sum_ // 10
+#     if carry:
+#         arr.insert(0,carry)
+#     return arr
+# if __name__ == "__main__":
+#     arr = [1, 2, 4]
+#     print("Add one ",add_one_number(arr=arr))
+"""
+Q9 Median of two sorted array
+Example 1:
+
+Input: nums1 = [1,3], nums2 = [2]
+Output: 2.00000
+Explanation: merged array = [1,2,3] and median is 2.
+Example 2:
+
+Input: nums1 = [1,2], nums2 = [3,4]
+Output: 2.50000
+Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+"""
+
+# ++++++++++++++ My Approach ++++++++++++++++
+
+# def array_median(arr1:list[int],arr2:list[int]) -> float:
+#     new_arr = arr1 + arr2
+#     new_arr.sort()
+#     print("array after sorting ",new_arr)
+#     n = len(new_arr)
+#     print("len ",n)
+#     if n % 2 == 0:
+#         mid1 = (n // 2) -1
+#         print("mid 1 ",mid1)
+#         mid2 = n // 2
+#         print("mid 2 ",mid2)
+#         return (new_arr[mid1] + new_arr[mid2]) / 2
+#     else:
+#         mid = n // 2
+#         return float(new_arr[mid])
+# if __name__ == "__main__":
+#     nums1 = [1,3,7,78,34,56]
+#     nums2 = [2,4,3,5,3,2]
+#     print("Media of two array ",array_median(nums1,nums2))
+
+
+"""
+Q10: Stock Buy and Sell - Max one Transaction Allowed
+Input: prices[] = [7, 10, 1, 3, 6, 9, 2]
+Output: 8
+Explanation: Buy for price 1 and sell for price 9. 
+
+Input: prices[] = [7, 6, 4, 3, 1]
+Output: 0
+Explanation: Since the array is sorted in decreasing order, 0 profit can be made without making any transaction.
+
+Input: prices[] = [1, 3, 6, 9, 11]
+Output: 10
+Explanation: Since the array is sorted in increasing order, we can make maximum profit by buying at price[0] and selling at price[n-1]
+"""
+
+
+# +++++++++++++++++++++ Naive approach (By exploring all possible pairs ) +++++++++++++++++++++++=
+# def max_profit(prices:list)->int:
+#     n = len(prices)
+#     res = 0
+
+#     for i in range(n - 1):
+#         for j in range(i + 1,n):
+#             res = max(res,prices[j] - prices[i])
+#     return res
+"""
+tc = 0(n*2)
+sc = 0(1)
+"""
+# if __name__ == "__main__":
+#     arr = [1, 3, 6, 9, 11]
+#     print("Max profit ",max_profit(prices=arr))
+
+
+# ++++++++++++++++++++++++++ Expected approach (One traversal approach ) ++++++++++++++++++++++++++++++
+# def max_profit(prices: list) -> int:
+#     min_so_far = prices[0]
+#     res = 0
+
+#     for i in range(1, len(prices)):
+
+#         min_so_far = min(min_so_far, prices[i])
+
+#         res = max(res, prices[i] - min_so_far)
+#     return res
+
+# if __name__ == "__main__":
+#     arr = [1, 3, 6, 9, 11]
+#     print("max profit ", max_profit(prices=arr))

@@ -973,3 +973,48 @@ sc = O(n)
 # if __name__ == "__main__":
 #     num = 36
 #     print("Factor of numbers are ",factors_of_number(num=num))
+'''
+Q 20 Display the longest name in an array
+
+Input: arr[] = {"GeeksforGeeks", "FreeCodeCamp", "StackOverFlow",  "MyCodeSchool"}
+Output: GeeksforGeeks StackOverFlow
+Explanation: size of arr[0] and arr[2] i.e., 13 > size of arr[1]  and arr[3] i.e., 12
+
+Input:  arr[] = {"Akash", "Adr"}
+Output: Akash
+
+'''
+
+# def longest_names(arr:list,n:int) -> list:
+#     if n < 1:
+#         return
+#     res = []
+    
+#     max = len(arr[0])
+    
+#     res.append(arr[0])
+    
+#     for name in arr:
+        
+#         if len(name) > max:
+#             max = len(name)
+#             res.clear()
+#             res.append(name)
+        
+#         elif len(name) == max:
+#             res.append(name)
+    
+#     return res
+'''
+tc = O(n)
+sc = O(n)
+''' 
+
+# if __name__ == "__main__":
+#     arr = ["GeeksforGeeks", "FreeCodeCamp", "StackOverFlow",  "MyCodeSchool"]
+#     print("Longest names ",longest_names(arr=arr,n=len(arr)))
+#     pass
+
+
+
+
