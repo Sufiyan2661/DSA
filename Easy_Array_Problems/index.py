@@ -778,3 +778,305 @@ sc = 0(1)
 # if __name__ == "__main__":
 #     arr = [1, 3, 6, 9, 11]
 #     print("max profit ", max_profit(prices=arr))
+
+
+"""
+Q 11 Stock Buy and Sell - Multiple Transaction Allowed
+Input: prices[] = [100, 180, 260, 310, 40, 535, 695]
+Output: 865
+
+Input: prices[] = [4, 2]
+Output: 0
+"""
+
+# +++++++++++++ Naive approach (By Trying all possibility) ++++++++++++
+# def max_profit(price,start,end):
+#     res = 0
+#     for i in range(start,end):
+#         for j in range(i +1,end + 1):
+
+
+# # Better Approach iterative O(n) and O(1)
+# def max_profit(prices):
+
+
+#     profit = 0
+
+#     for i  in range(1,len(prices)):
+#         if prices[i] > prices[i -1]:
+#             profit += prices[i] - prices[i - 1]
+#     return profit
+
+
+# if __name__ == "__main__":
+#     prices = [100, 180, 260, 310, 40, 535, 695]
+#     print("Max profit ",max_profit(prices=prices))
+
+
+"""
+Q12 Remove duplicates from Sorted Array
+
+Input: arr[] = [2, 2, 2, 2, 2]
+Output: [2]
+Explanation: All the elements are 2, So only keep one instance of 2.
+
+Input: arr[] = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+Output: [1, 2, 3, 4, 5]
+
+Input: arr[] = [1, 2, 3]
+Output: [1, 2, 3]
+Explanation : No change as all elements are distinct.
+"""
+# +++++++++++++++++= Using Set
+# def remove_duplicates(arr:list) -> int:
+#     seen = set()
+#     idx = 0
+#     for i in range(len(arr)):
+#         if not arr[i] in seen:
+#             seen.add(arr[i])
+#             arr[idx] = arr[i]
+#             idx += 1
+#     return idx
+
+"""
+operations for tc:
+    initializing two variables (seen:set) and (idx:int) takes constant time O(1)
+    iteranting each element takes O(n) and inside each iteration performing consant operation
+    tc = O(1) + O(n)
+    tc = O(n)
+operations sc:
+    intiailizing variables seen of type set which can be store n number of elements so its sc will be O(n)
+    initializing idx to track the index of that value so it is O(1)
+    sc = O(n) + O(1)
+    sc = O(n)
+"""
+
+# if __name__ == "__main__":
+#     arr = [1, 2, 3]
+#     new_size = remove_duplicates(arr=arr)
+#     for i in range(new_size):
+#         print(arr[i],end=" ")
+
+
+# def remove_duplicate(arr:list)->int:
+#     n = len(arr)
+#     if n <= 1:
+#         return n
+#     idx = 1
+#     for i in range(1,n):
+#         if arr[i] != arr[i - 1]:
+#             arr[idx] = arr[i]
+#             idx +=1
+#     return idx
+"""
+operations for tc:
+    intializing two variables of type int one to store the lenght of the array and other to track index of the elements both takes constant time O(1)
+    iterating each element takes n times if the array has n number of elements  and inside each iteration we are performing contant operations so here we ignore constant and the time complexity will be O(n)
+    tc = O(1) + O(n)
+    tc = O(n)
+operatons for sc:
+    initializing variable n it takes constant space O(1)
+    initializing variable idx to track the index also takes constant space O(1)
+    and using variable i for iteration of each index also takes constant space 
+    sc = O(1)
+"""
+
+# if __name__ == "__main__":
+#     arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+#     new_size = remove_duplicate(arr=arr)
+#     for i in range(new_size):
+#         print(arr[i],end=" ")
+
+
+"""
+Q13: Rearrange Array Elements by Sign
+
+Input:  arr[] = [1, 2, 3, -4, -1, 4]
+Output: arr[] = [1, -4, 2, -1, 3, 4]
+
+Input:  arr[] = [-5, -2, 5, 2, 4, 7, 1, 8, 0, -8]
+Output: arr[] = [5, -5, 2, -2, 4, -8, 7, 1, 8, 0]
+"""
+
+
+# def right_rotate(arr: list, start: int, end: int) -> None:
+#     temp = arr[end]
+#     for i in range(end, start, -1):
+#         arr[i] = arr[i - 1]
+#     arr[start] = temp
+
+
+# def rearange_array(arr: list) -> None:
+#     n = len(arr)
+#     for i in range(n):
+#         # Check if current positive element is out of place
+#         if arr[i] >= 0 and i % 2 == 1:
+#             # Find the next negative element and rotate the subarray
+#             for j in range(i + 1, n):
+#                 if arr[j] < 0:
+#                     right_rotate(arr=arr, start=i, end=j)
+#                     break
+#         elif arr[i] < 0 and i % 2 == 0:
+#             # find the next positive element and rotate the sub array
+#             for j in range(i + 1, n):
+#                 if arr[j] >= 0:
+#                     right_rotate(arr, i, j)
+#                     break
+
+
+
+
+
+# if __name__ == "__main__":
+#     arr = [1, 2, 3, -4, -1, 4]
+#     rearange_array(arr=arr)
+#     print(" ".join(map(str, arr)))
+
+
+'''
+Q14 : Leaders in an array
+Input: arr[] = [16, 17, 4, 3, 5, 2]
+Output: [17 5 2]
+Explanation: 17 is greater than all the elements to its right i.e., [4, 3, 5, 2], therefore 17 is a leader. 5 is greater than all the elements to its right 
+i.e., [2], therefore 5 is a leader. 2 has no element to its right, therefore 2 is a leader.
+
+Input: arr[] = [1, 2, 3, 4, 5, 2]
+Output: [5 2]
+Explanation: 5 is greater than all the elements to its right i.e., [2], therefore 5 is a leader. 2 has no element to its right, therefore 2 is a leader.
+'''
+
+# +++++++++++++++++++ Naive approach using nested loops ++++++++++++++++++++++++++
+# def leaders(arr:list) -> list:
+#     n = len(arr)
+#     result = []
+#     for i in range(n):
+#         for j in range(i + 1,n):
+#             if arr[i] < arr[j]:
+#                 break
+#         else:
+#             result.append(arr[i])
+#     return result
+
+# if __name__ == "__main__":
+#     arr = [16, 17, 4, 3, 5, 2]
+#     new_arr = leaders(arr=arr)
+#     print("New Array ",new_arr)
+
+
+# +++++++++++++++++++++ Using expected approach ++++++++++++++++++
+# def leaders(arr:list) -> list:
+#     n = len(arr)
+#     result = []
+#     max_right = arr[-1]
+    
+#     result.append(max_right)
+#     for i in range(n-2,0,-1):
+#         if arr[i] >= max_right:
+#             max_right = arr[i]
+#             result.append(max_right)
+#     result.reverse()
+#     return result
+        
+# if __name__ == "__main__":
+#     arr = [16, 17, 4, 3, 5, 2]
+#     new_array = leaders(arr=arr)
+#     print("New Array ",new_array)
+    
+    
+    
+
+'''
+Q15: Missing ranges of numbers
+Input: arr[] = [14, 15, 20, 30, 31, 45], lower = 10, upper = 50
+Output: [[10, 13], [16, 19], [21, 29], [32, 44], [46, 50]]
+Explanation: These ranges represent all missing numbers between 10 and 50 not present in the array
+Input: arr[] = [-48, -10, -6, -4, 0, 4, 17], lower = -54, upper = 17
+Output: [[-54, -49], [-47, -11], [-9, -7], [-5, -5], [-3, -1], [1, 3], [5,16]]
+Explanation: These ranges represent all missing numbers between -54 and 17 not present in the array.
+'''
+
+# def missing_ranges(arr:list,lower:int,upper):
+#     n = len(arr)
+#     res = []
+    
+    
+#     # if first element is greater than lower
+#     if arr[0] > lower:
+#         res.append([lower,arr[0] - 1])
+    
+#     for i in range(n - 1):
+#         if arr[i + 1] - arr[i] > 1:
+#             res.append([arr[i] + 1,arr[i + 1] - 1])
+    
+    
+#     if upper > arr[-1]:
+#         res.append([arr[-1] + 1, upper])
+
+#     return res
+
+'''
+
+'''
+
+# if __name__ == "__main__":
+#     lower = 10
+#     upper = 50
+#     arr = [14, 15, 20, 30, 31, 45]
+#     res =  missing_ranges(arr=arr,lower=lower,upper=upper)
+#     print("Result ",res)
+    
+#     for v in res:
+#         print(v[0],v[1])
+
+
+'''
+Q16: Sum of all subarrays
+Input: arr[] = [1, 4, 5, 3, 2]
+Output: 116
+Explanation: Sum of all possible subarrays of the array [1, 4, 5, 3, 2] is 116.
+
+Input: arr[] = [1, 2, 3, 4]
+Output: 50
+Explanation: Sum of all possible subarrays of the array [1, 2, 3, 4] is 50.
+'''
+
+# ++++++++++ Naive Approach using nested loops +++++++++++++++++++++
+# def sum_of_subarrays(arr:list) -> int:
+#     n = len(arr)
+#     result = 0
+    
+#     for i in range(n):
+#         temp = 0
+        
+#         for j in range(i,n):
+#             temp  += arr[j]
+#             result += temp
+    
+#     return result
+
+
+# if __name__ == "__main__":
+#     arr = [1, 4, 5, 3, 2]
+#     result = sum_of_subarrays(arr=arr)
+#     print("Sub of sum arrays ",result)
+
+
+
+# +++++++++++ Expected Approach Element Contribution method ++++++++++++++++++
+# def sum_of_subarrays(arr:list) ->int:
+#     answer = 0
+#     n = len(arr)
+    
+#     for i in range(n):
+#         answer += arr[i] * (i+1) * (n-i)
+    
+    
+#     return answer
+
+
+# if __name__ == "__main__":
+#     arr = [1, 4, 5, 3, 2]
+#     result = sum_of_subarrays(arr=arr)
+#     print("Result ",result)
+    
+            
