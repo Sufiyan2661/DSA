@@ -638,4 +638,268 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     
 #     for i in range(k):
 #         print(arr[i],end=" ")
+
+
+'''
+Q 15 : Remove Element
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+Return k.
+Custom Judge:
+
+The judge will test your solution with the following code:
+
+int[] nums = [...]; // Input array
+int val = ...; // Value to remove
+int[] expectedNums = [...]; // The expected answer with correct length.
+                            // It is sorted with no values equaling val.
+
+int k = removeElement(nums, val); // Calls your implementation
+
+assert k == expectedNums.length;
+sort(nums, 0, k); // Sort the first k elements of nums
+for (int i = 0; i < actualLength; i++) {
+    assert nums[i] == expectedNums[i];
+}
+If all assertions pass, then your solution will be accepted.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,2,3], val = 3
+Output: 2, nums = [2,2,_,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+Example 2:
+
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Output: 5, nums = [0,1,4,0,3,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+Note that the five elements can be returned in any order.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+ 
+'''
+
+# def remove_element(arr:list,val:int) -> int:
+#     n = len(arr)
+    
+#     i = 0
+#     remove_count = 0
+#     while i < n:
+#         if arr[i] == val:
+#             arr.pop(i)
+#             arr.append("_")
+#             i -= 1
+#             remove_count +=1
+#         else:
+#             i += 1
+#     return n - remove_count
+
+# if __name__ == "__main__":
+#     arr = [0,1,2,2,3,0,4,2]
+#     val = 2
+#     k = remove_element(arr=arr,val=val)
+#     for i in range(k):
+#         print(arr[i],end=" ")
+    
         
+
+'''
+Q 16: Reverse Nodes in k-Group
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
+
+k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+
+You may not alter the values in the list's nodes, only nodes themselves may be changed.
+
+
+Example 1:
+Input: head = [1,2,3,4,5], k = 2
+Output: [2,1,4,3,5]
+Example 2:
+Input: head = [1,2,3,4,5], k = 3
+Output: [3,2,1,4,5]
+'''
+# class Node:
+#     def __init__(self,data= 0):
+#         self.data = data
+#         self.next = None
+        
+
+# def print_list(head):
+#     curr = head 
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print(' --> ',end="")
+#         curr = curr.next
+#     print()
+        
+# def reverse_k_group(head,k):
+#     dummy = Node()
+#     dummy.next = head
+#     group_prev = dummy
+    
+#     while True:
+        
+#         # Find the kth node
+#         kth = group_prev
+#         for _ in range(k):
+#             kth = kth.next
+#             if not kth:
+#                 return dummy.next
+        
+#         group_next = kth.next
+#         prev = group_next
+#         curr = group_prev.next
+#         while curr != group_next:
+            
+#             temp = curr.next
+#             curr.next = prev
+#             prev = curr
+#             curr = temp
+        
+#         temp = group_prev.next
+#         group_prev.next = kth
+#         group_prev = temp
+#     return dummy.next
+
+
+
+
+
+# if __name__ == "__main__":
+#     head = Node(1)
+#     head.next = Node(2)
+#     head.next.next = Node(3)
+#     head.next.next.next = Node(4)
+#     head.next.next.next.next = Node(5)
+    
+#     print_list(head=head)
+#     head = reverse_k_group(head,2) 
+#     print_list(head=head)   
+
+
+
+'''
+Q 17 : Given the head of a linked list, rotate the list to the right by k places.
+Given the head of a linked list, rotate the list to the right by k places.
+
+Example 1:
+Input: head = [1,2,3,4,5], k = 2
+Output: [4,5,1,2,3]
+
+Example 2:
+Input: head = [0,1,2], k = 4
+Output: [2,0,1]
+'''
+
+# class Node:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.next = None
+
+
+
+# def move_to_left(head:Node,k:int) -> Node:
+    
+#     if not head or k == 0:
+#         return head
+    
+#     curr = head
+    
+    
+#     length = 1
+#     while curr.next:
+#         length += 1
+#         curr = curr.next
+        
+#     last = curr
+#     k = k % length
+#     if k == 0:
+#         return head
+#     curr = head
+    
+#     for _ in range(length - k - 1):
+#         curr = curr.next
+        
+#     new_head = curr.next
+#     curr.next = None
+#     last.next = head
+    
+#     return new_head
+        
+    
+
+    
+
+
+# def print_list(head:Node) -> None:
+#     curr = head
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print("-->",end=" ")
+#         curr = curr.next
+#     print()
+
+
+
+# if __name__ == "__main__":
+    
+#     head = Node(1)
+#     head.next = Node(2)
+#     # head.next.next = Node(3)
+#     # head.next.next.next = Node(4)
+#     # head.next.next.next.next = Node(5)
+    
+#     # print_list(head=head)
+#     head = move_to_left(head=head,k=2)
+#     print_list(head=head)
+    
+'''
+Q 18 : Remove Duplicates from Sorted List II
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
+
+Example 1:
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
+
+Example 2:
+Input: head = [1,1,1,2,3]
+Output: [2,3]
+'''
+
+
+class Node:
+    def __init__(self,data=0):
+        self.data = data
+        self.next = None
+
+def print_list(head:Node) -> None:
+    curr = head
+    while curr:
+        print(curr.data,end=" ")
+        if curr.next:
+            print("--> ",end="")
+        curr = curr.next
+    print()
+
+
+
+if __name__ == "__main__":
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(3)
+    head.next.next.next.next = Node(4)
+    head.next.next.next.next.next = Node(4)
+    head.next.next.next.next.next.next = Node(5)
+    
+    
+    print_list(head=head)
+    

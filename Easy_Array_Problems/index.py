@@ -1079,4 +1079,3 @@ Explanation: Sum of all possible subarrays of the array [1, 2, 3, 4] is 50.
 #     result = sum_of_subarrays(arr=arr)
 #     print("Result ",result)
     
-            
