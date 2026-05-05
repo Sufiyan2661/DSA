@@ -873,33 +873,242 @@ Example 2:
 Input: head = [1,1,1,2,3]
 Output: [2,3]
 '''
+# class Node:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.next = None
+        
+        
+# def print_list(head:Node) -> Node:
+    
+#     curr = head
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print("-->",end=" ")
+#         curr = curr.next
+        
+#     print()
+    
 
+
+# def remove_duplicates(head:Node) -> Node:
+#     dummy = Node()
+#     dummy.next = head
+#     prev = dummy
+#     curr = head
+#     while curr:
+#         if curr.next and curr.data == curr.next.data:
+#             duplicate_value = curr.data
+            
+#             while curr and curr.data == duplicate_value:
+#                 curr = curr.next
+            
+#             prev.next = curr
+#         else:
+            
+#             prev = curr
+#             curr = curr.next
+
+#     return dummy.next
+
+# # [1,2,3,3,4,4,5]
+# if __name__ == "__main__":
+    
+#     head = Node(1)
+#     head.next = Node(2)
+#     head.next.next = Node(3)
+#     head.next.next.next = Node(3)
+#     head.next.next.next.next = Node(4)
+#     head.next.next.next.next.next = Node(4)
+#     head.next.next.next.next.next.next= Node(5)
+
+
+#     print_list(head=head)
+#     head = remove_duplicates(head=head)
+#     print_list(head=head)
+    
+    
+'''
+Q 19 : Remove Duplicates from Sorted List
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+Example 1:
+Input: head = [1,1,2]
+Output: [1,2]
+
+Example 2:
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+'''
+# class Node:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.next = None
+
+
+# def print_list(head:Node) -> None:
+#     curr = head
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print('-->',end=" ")
+#         curr = curr.next
+#     print()
+    
+# def remove_duplicates(head:Node) -> Node:
+    
+#     curr = head
+#     while curr and curr.next:
+#         if curr.data == curr.next.data:
+#             curr.next = curr.next.next
+#         else:
+#             curr = curr.next
+#     return head
+
+
+
+# if __name__ == "__main__":
+#     head = Node(1)
+#     head.next = Node(1)
+#     head.next.next = Node(2)
+    
+#     print_list(head=head)
+#     head = remove_duplicates(head=head)
+#     print_list(head=head)
+
+
+'''
+Q 20 : Partition List
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
+
+You should preserve the original relative order of the nodes in each of the two partitions.
+Example 1:
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
+
+Example 2:
+Input: head = [2,1], x = 2
+Output: [1,2]
+'''
+
+# class Node:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.next = None
+        
+# def print_list(head:Node) -> None:
+#     curr = head
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print("-->",end=" ")
+#         curr = curr.next
+#     print()
+
+
+# def partitioning(head:Node,x:int) -> Node:
+#     left_dummy = Node()
+#     right_dummy = Node()
+    
+#     left,right  = left_dummy,right_dummy
+#     curr = head
+#     while curr:
+#         if curr.data < x:
+#             left.next = curr
+#             left = left.next
+#         else:
+#             right.next = curr
+#             right = right.next
+#         curr = curr.next
+#     right.next = None
+#     left.next = right_dummy.next
+#     return left_dummy.next
+
+
+
+
+# if __name__ == "__main__":
+#     head = Node(1)
+#     head.next = Node(4)
+#     head.next.next = Node(3)
+#     head.next.next.next = Node(2)
+#     head.next.next.next.next = Node(5)
+#     head.next.next.next.next.next = Node(2)
+    
+#     print_list(head=head)
+#     x = 3
+    
+#     head = partitioning(head=head,x=x)
+#     print_list(head=head)    
+    
+    
+'''
+Q 21 : Reverse Linked List II
+Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.
+Example 1:
+Input: head = [1,2,3,4,5], left = 2, right = 4
+Output: [1,4,3,2,5]
+
+Example 2:
+Input: head = [5], left = 1, right = 1
+Output: [5]
+ 
+'''
 
 class Node:
-    def __init__(self,data=0):
+    def __init__(self,data = 0):
         self.data = data
         self.next = None
 
-def print_list(head:Node) -> None:
+def reverse_second(head:Node,left:int,right:int) -> Node:
+    
+    if head is None:
+        return head
+    
+    dummy = Node()
+    dummy.next = head
+    
+    prev = dummy
+    
+    for _ in range(1,left):
+        prev = prev.next
+    
+    
+    curr = prev.next
+    next_node = None
+    for _ in range(right-left + 1):
+        temp = curr.next
+        curr.next = next_node
+        next_node = curr
+        curr = temp
+        
+    prev.next.next = curr
+    prev.next = next_node
+    return dummy.next
+
+def print_list(head:Node) ->None:
     curr = head
     while curr:
         print(curr.data,end=" ")
         if curr.next:
-            print("--> ",end="")
+            print("-->",end=" ")
         curr = curr.next
     print()
-
-
+    
 
 if __name__ == "__main__":
+    
     head = Node(1)
     head.next = Node(2)
     head.next.next = Node(3)
-    head.next.next.next = Node(3)
-    head.next.next.next.next = Node(4)
-    head.next.next.next.next.next = Node(4)
-    head.next.next.next.next.next.next = Node(5)
+    head.next.next.next = Node(4)
+    head.next.next.next.next = Node(5)
     
     
     print_list(head=head)
-    
+    left = 2
+    right = 4
+    head = reverse_second(head=head,left=left,right=right)
+    print_list(head=head)
+        

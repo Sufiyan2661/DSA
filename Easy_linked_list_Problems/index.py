@@ -36,8 +36,8 @@ Q1 : Middle Node in a Linked List
 
 
 '''
-tc  = O(n*2)
-sc = O(1    )
+tc  = O(n)
+sc = O(1)
 '''
 
 # if __name__ == "__main__":
