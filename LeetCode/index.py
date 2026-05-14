@@ -475,25 +475,25 @@ Every close bracket has a corresponding open bracket of the same type.
 # def is_valid(s: str) -> bool:
 #     stack = Stack(len(s))
 #     mapping = {")": "(", "}": "{", "]": "["}
-    
+
 #     for ch in s:
-        
-        
+
+
 #         # if closing bracket
 #         if ch in mapping:
-            
+
 #             if stack.is_empty():
 #                 return False
-            
+
 #             top = stack.peek()
-            
+
 #             if mapping[ch] == top:
 #                 stack.pop()
 #             else:
 #                 return False
 #         else:
 #             stack.push(ch)
-    
+
 #     return stack.is_empty()
 
 
@@ -502,9 +502,7 @@ Every close bracket has a corresponding open bracket of the same type.
 #     print("Ans => ",is_valid(s))
 
 
-
-
-'''
+"""
 Q 12 : Merge two sorted linked list
 Input: list1 = [1,2,4], list2 = [1,3,4]
 Output: [1,1,2,3,4,4]
@@ -516,23 +514,21 @@ Example 3:
 
 Input: list1 = [], list2 = [0]
 Output: [0]
-'''
-
+"""
 
 
 # class Node:
 #     def __init__(self,data = 0):
 #         self.data = data
 #         self.next = None
-        
 
 
 # def merge_list(l1:Node,l2:Node) -> Node:
 #     l3 = Node()
-    
+
 #     tail = l3
 #     while l1 and l2:
-        
+
 #         if l1.data < l2.data:
 #             tail.next = l1
 #             l1 = l1.next
@@ -540,46 +536,43 @@ Output: [0]
 #             tail.next = l2
 #             l2 = l2.next
 #         tail = tail.next
-    
+
 #     if l1:
 #         tail.next = l1
 #     else:
 #         tail.next = l2
-    
+
 #     return l3.next
-            
 
 
 # def print_list(head:Node) -> None:
-    
+
 #     curr = head
-    
+
 #     while curr:
-        
+
 #         print(curr.data,end="")
 #         if curr.next:
 #             print(" --> ",end="")
 #         curr = curr.next
 #     print()
-    
+
 
 # if __name__ == "__main__":
 #     l1 = Node(1)
 #     l1.next = Node(2)
 #     l1.next.next = Node(4)
-    
-    
+
+
 #     l2 = Node(1)
 #     l2.next = Node(3)
 #     l2.next.next = Node(4)
-    
+
 #     head = merge_list(l1=l1,l2=l2)
 #     print_list(head=head)
-    
 
 
-
-'''
+"""
 Q 14 : Remove Duplicates from Sorted Array
 
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
@@ -617,13 +610,13 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
  
-'''
+"""
 
 
 # def remove_duplicates(arr:list) ->int:
-    
+
 #     n = len(arr)
-    
+
 #     i = 0
 #     for j in range(n):
 #         if arr[j] != arr[i]:
@@ -635,12 +628,12 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 # if __name__ == "__main__":
 #     arr = [0,0,1,1,1,2,2,3,3,4]
 #     k = remove_duplicates(arr=arr)
-    
+
 #     for i in range(k):
 #         print(arr[i],end=" ")
 
 
-'''
+"""
 Q 15 : Remove Element
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
 
@@ -682,11 +675,11 @@ Explanation: Your function should return k = 5, with the first five elements of 
 Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
  
-'''
+"""
 
 # def remove_element(arr:list,val:int) -> int:
 #     n = len(arr)
-    
+
 #     i = 0
 #     remove_count = 0
 #     while i < n:
@@ -705,10 +698,9 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 #     k = remove_element(arr=arr,val=val)
 #     for i in range(k):
 #         print(arr[i],end=" ")
-    
-        
 
-'''
+
+"""
 Q 16: Reverse Nodes in k-Group
 Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.
 
@@ -723,53 +715,50 @@ Output: [2,1,4,3,5]
 Example 2:
 Input: head = [1,2,3,4,5], k = 3
 Output: [3,2,1,4,5]
-'''
+"""
 # class Node:
 #     def __init__(self,data= 0):
 #         self.data = data
 #         self.next = None
-        
+
 
 # def print_list(head):
-#     curr = head 
+#     curr = head
 #     while curr:
 #         print(curr.data,end=" ")
 #         if curr.next:
 #             print(' --> ',end="")
 #         curr = curr.next
 #     print()
-        
+
 # def reverse_k_group(head,k):
 #     dummy = Node()
 #     dummy.next = head
 #     group_prev = dummy
-    
+
 #     while True:
-        
+
 #         # Find the kth node
 #         kth = group_prev
 #         for _ in range(k):
 #             kth = kth.next
 #             if not kth:
 #                 return dummy.next
-        
+
 #         group_next = kth.next
 #         prev = group_next
 #         curr = group_prev.next
 #         while curr != group_next:
-            
+
 #             temp = curr.next
 #             curr.next = prev
 #             prev = curr
 #             curr = temp
-        
+
 #         temp = group_prev.next
 #         group_prev.next = kth
 #         group_prev = temp
 #     return dummy.next
-
-
-
 
 
 # if __name__ == "__main__":
@@ -778,14 +767,13 @@ Output: [3,2,1,4,5]
 #     head.next.next = Node(3)
 #     head.next.next.next = Node(4)
 #     head.next.next.next.next = Node(5)
-    
+
 #     print_list(head=head)
-#     head = reverse_k_group(head,2) 
-#     print_list(head=head)   
+#     head = reverse_k_group(head,2)
+#     print_list(head=head)
 
 
-
-'''
+"""
 Q 17 : Given the head of a linked list, rotate the list to the right by k places.
 Given the head of a linked list, rotate the list to the right by k places.
 
@@ -796,7 +784,7 @@ Output: [4,5,1,2,3]
 Example 2:
 Input: head = [0,1,2], k = 4
 Output: [2,0,1]
-'''
+"""
 
 # class Node:
 #     def __init__(self,data = 0):
@@ -804,38 +792,33 @@ Output: [2,0,1]
 #         self.next = None
 
 
-
 # def move_to_left(head:Node,k:int) -> Node:
-    
+
 #     if not head or k == 0:
 #         return head
-    
+
 #     curr = head
-    
-    
+
+
 #     length = 1
 #     while curr.next:
 #         length += 1
 #         curr = curr.next
-        
+
 #     last = curr
 #     k = k % length
 #     if k == 0:
 #         return head
 #     curr = head
-    
+
 #     for _ in range(length - k - 1):
 #         curr = curr.next
-        
+
 #     new_head = curr.next
 #     curr.next = None
 #     last.next = head
-    
-#     return new_head
-        
-    
 
-    
+#     return new_head
 
 
 # def print_list(head:Node) -> None:
@@ -848,48 +831,46 @@ Output: [2,0,1]
 #     print()
 
 
-
 # if __name__ == "__main__":
-    
+
 #     head = Node(1)
 #     head.next = Node(2)
 #     # head.next.next = Node(3)
 #     # head.next.next.next = Node(4)
 #     # head.next.next.next.next = Node(5)
-    
+
 #     # print_list(head=head)
 #     head = move_to_left(head=head,k=2)
 #     print_list(head=head)
-    
-'''
+
+"""
 Q 18 : Remove Duplicates from Sorted List II
 Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.
 
 Example 1:
-Input: head = [1,2,3,3,4,4,5]
+Input: head =  [1,2,3,3,4,4,5]
 Output: [1,2,5]
 
 Example 2:
 Input: head = [1,1,1,2,3]
 Output: [2,3]
-'''
+"""
 # class Node:
 #     def __init__(self,data = 0):
 #         self.data = data
 #         self.next = None
-        
-        
+
+
 # def print_list(head:Node) -> Node:
-    
+
 #     curr = head
 #     while curr:
 #         print(curr.data,end=" ")
 #         if curr.next:
 #             print("-->",end=" ")
 #         curr = curr.next
-        
+
 #     print()
-    
 
 
 # def remove_duplicates(head:Node) -> Node:
@@ -900,13 +881,13 @@ Output: [2,3]
 #     while curr:
 #         if curr.next and curr.data == curr.next.data:
 #             duplicate_value = curr.data
-            
+
 #             while curr and curr.data == duplicate_value:
 #                 curr = curr.next
-            
+
 #             prev.next = curr
 #         else:
-            
+
 #             prev = curr
 #             curr = curr.next
 
@@ -914,7 +895,7 @@ Output: [2,3]
 
 # # [1,2,3,3,4,4,5]
 # if __name__ == "__main__":
-    
+
 #     head = Node(1)
 #     head.next = Node(2)
 #     head.next.next = Node(3)
@@ -927,9 +908,9 @@ Output: [2,3]
 #     print_list(head=head)
 #     head = remove_duplicates(head=head)
 #     print_list(head=head)
-    
-    
-'''
+
+
+"""
 Q 19 : Remove Duplicates from Sorted List
 Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
 
@@ -940,7 +921,7 @@ Output: [1,2]
 Example 2:
 Input: head = [1,1,2,3,3]
 Output: [1,2,3]
-'''
+"""
 # class Node:
 #     def __init__(self,data = 0):
 #         self.data = data
@@ -955,9 +936,9 @@ Output: [1,2,3]
 #             print('-->',end=" ")
 #         curr = curr.next
 #     print()
-    
+
 # def remove_duplicates(head:Node) -> Node:
-    
+
 #     curr = head
 #     while curr and curr.next:
 #         if curr.data == curr.next.data:
@@ -967,18 +948,17 @@ Output: [1,2,3]
 #     return head
 
 
-
 # if __name__ == "__main__":
 #     head = Node(1)
 #     head.next = Node(1)
 #     head.next.next = Node(2)
-    
+
 #     print_list(head=head)
 #     head = remove_duplicates(head=head)
 #     print_list(head=head)
 
 
-'''
+"""
 Q 20 : Partition List
 Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
 
@@ -990,13 +970,13 @@ Output: [1,2,2,4,3,5]
 Example 2:
 Input: head = [2,1], x = 2
 Output: [1,2]
-'''
+"""
 
 # class Node:
 #     def __init__(self,data = 0):
 #         self.data = data
 #         self.next = None
-        
+
 # def print_list(head:Node) -> None:
 #     curr = head
 #     while curr:
@@ -1010,7 +990,7 @@ Output: [1,2]
 # def partitioning(head:Node,x:int) -> Node:
 #     left_dummy = Node()
 #     right_dummy = Node()
-    
+
 #     left,right  = left_dummy,right_dummy
 #     curr = head
 #     while curr:
@@ -1026,8 +1006,6 @@ Output: [1,2]
 #     return left_dummy.next
 
 
-
-
 # if __name__ == "__main__":
 #     head = Node(1)
 #     head.next = Node(4)
@@ -1035,15 +1013,15 @@ Output: [1,2]
 #     head.next.next.next = Node(2)
 #     head.next.next.next.next = Node(5)
 #     head.next.next.next.next.next = Node(2)
-    
+
 #     print_list(head=head)
 #     x = 3
-    
+
 #     head = partitioning(head=head,x=x)
-#     print_list(head=head)    
-    
-    
-'''
+#     print_list(head=head)
+
+
+"""
 Q 21 : Reverse Linked List II
 Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.
 Example 1:
@@ -1054,61 +1032,367 @@ Example 2:
 Input: head = [5], left = 1, right = 1
 Output: [5]
  
+"""
+
+# class Node:
+#     def __init__(self,data = 0):
+#         self.data = data
+#         self.next = None
+
+# def reverse_second(head:Node,left:int,right:int) -> Node:
+
+#     if head is None:
+#         return head
+
+#     dummy = Node()
+#     dummy.next = head
+
+#     prev = dummy
+
+#     for _ in range(1,left):
+#         prev = prev.next
+
+
+#     curr = prev.next
+#     next_node = None
+#     for _ in range(right-left + 1):
+#         temp = curr.next
+#         curr.next = next_node
+#         next_node = curr
+#         curr = temp
+
+#     prev.next.next = curr
+#     prev.next = next_node
+#     return dummy.next
+
+# def print_list(head:Node) ->None:
+#     curr = head
+#     while curr:
+#         print(curr.data,end=" ")
+#         if curr.next:
+#             print("-->",end=" ")
+#         curr = curr.next
+#     print()
+
+
+# if __name__ == "__main__":
+
+#     head = Node(1)
+#     head.next = Node(2)
+#     head.next.next = Node(3)
+#     head.next.next.next = Node(4)
+#     head.next.next.next.next = Node(5)
+
+
+#     print_list(head=head)
+#     left = 2
+#     right = 4
+#     head = reverse_second(head=head,left=left,right=right)
+#     print_list(head=head)
+
+
+"""
+Maximum Sum Subarray of Size K
+"""
+
+
+# def max_sub_arr(arr: list, k: int) -> int:
+#     max_window = sum(arr[:k])
+#     max_sum = max_window
+
+#     for i in range(k, len(arr)):
+#         print(i)
+#         max_window += arr[i]
+#         max_window -= arr[i - k]
+
+#         max_sum = max(max_sum, max_window)
+#     return max_sum
+
+
+# if __name__ == "__main__":
+#     arr = [2, 1, 5, 1, 3, 2]
+#     k = 3
+
+#     print("Max of sub arrays ", max_sub_arr(arr=arr, k=k))
+
+
+
+'''
+Given strings s and p, find all start indices of p's anagrams in s.
 '''
 
-class Node:
-    def __init__(self,data = 0):
-        self.data = data
-        self.next = None
-
-def reverse_second(head:Node,left:int,right:int) -> Node:
+# def anagrams(s:str,p:str):
+#     p_len = len(p)
+#     s_len = len(s)
     
-    if head is None:
-        return head
+#     p_count = {}
+#     s_count = {}
+#     res = []
     
-    dummy = Node()
-    dummy.next = head
-    
-    prev = dummy
-    
-    for _ in range(1,left):
-        prev = prev.next
-    
-    
-    curr = prev.next
-    next_node = None
-    for _ in range(right-left + 1):
-        temp = curr.next
-        curr.next = next_node
-        next_node = curr
-        curr = temp
+#     for i in range(p_len):
+#         p_count[p[i]] = p_count.get(p[i],0) + 1
+#         s_count[s[i]] = s_count.get(s[i],0) + 1
         
-    prev.next.next = curr
-    prev.next = next_node
-    return dummy.next
-
-def print_list(head:Node) ->None:
-    curr = head
-    while curr:
-        print(curr.data,end=" ")
-        if curr.next:
-            print("-->",end=" ")
-        curr = curr.next
-    print()
     
+#     if p_count == s_count:
+#         res.append(0)
+    
+    
+#     # sliding window 
+#     for i in range(p_len,s_len):
+#         char_in = s[i]
+#         s_count[char_in] = s_count.get(char_in,0) + 1
+        
+#         # print("S count ",s_count)
+#         char_out = s[i - p_len]
+#         s_count[char_out] -= 1
+        
+        
+#         if s_count[char_out] == 0:
+#             del s_count[char_out]
+        
+        
+#         if s_count == p_count:
+#             res.append(i - p_len + 1)
+            
+#     print("Result ",res)
+        
+        
+    
+# if __name__ == "__main__":
+#     s = "cbaebabacd"
+#     p = "abc"
+#     anagrams(s=s,p=p)
 
+
+
+'''
+Permutation in String (LeetCode 567)
+
+Problem: Given two strings s1 and s2, return true if s2 contains a permutation of s1.
+'''
+
+# def permuation(s1:str,s2:str) -> bool:
+#     s1_len = len(s1)
+#     s2_len = len(s2)
+#     if s1_len > s2_len:
+#         return False
+    
+#     s1_count = {}
+#     s2_count = {}
+    
+#     for i in range(s1_len):
+        
+#         s1_count[s1[i]] = s1_count.get(s1[i],0) + 1
+#         s2_count[s2[i]] = s2_count.get(s2[i],0) + 1
+#     if s1_count == s2_count:
+#         return True
+    
+#     for i in range(s1_len,s2_len):
+        
+#         char_in = s2[i]
+#         s2_count[char_in] = s2_count.get(char_in,0) + 1
+        
+        
+#         char_out = s2[i - s1_len]
+#         s2_count[char_out] -= 1
+        
+#         if s2_count[char_out] ==0:
+#             del s2_count[char_out]
+        
+        
+#         if s1_count == s2_count:
+#             return True
+    
+#     return False
+    
+    
+# if __name__ == "__main__":
+#     s1 = "hello"
+#     s2 = "ooolleoooleh"
+#     print("Result ",permuation(s1=s1,s2=s2))
+
+
+
+'''
+ Sliding Window Maximum (LeetCode 239)
+'''
+# from collections import deque
+# def window_max(arr:list,k:int)->int:
+#     dq = deque()
+#     n  = len(arr)
+#     res = []
+    
+    
+#     for i in range(n):
+        
+#         while dq and arr[dq[-1]] < arr[i]:
+#             dq.pop()
+        
+#         dq.append(i)
+#     print("value of dq ",dq)
+#     if dq[0] == i - k:
+#         dq.popleft()
+        
+#     if i >= k - 1:
+#         res.append(arr[dq[0]])
+#     print("Value of result ",res)
+        
+
+# if __name__ == "__main__":
+#     nums = [1, 3, -1, -3, 5, 3, 6, 7]
+#     k = 3
+
+#     window_max(arr=nums,k=k)
+
+
+
+'''
+. Longest Substring Without Repeating Characters (LeetCode 3)
+'''
+    
+# def logest_unique_substring(s:str) -> int:
+#     char_set = set()
+    
+#     left = 0
+#     max_length = 0
+    
+#     for right in range(len(s)):
+        
+#         while s[right] in char_set:
+#             char_set.remove(s[left])
+#             left += 1
+            
+#         char_set.add(s[right])
+        
+        
+#         current_window_size = right - left + 1
+#         max_length = max(max_length,current_window_size)
+        
+#     return max_length
+
+
+# if __name__ == "__main__":
+#     s = "abcabcbb"
+#     print("Ans ",logest_unique_substring(s=s))
+requests = [
+    [1, 2, 10, 1],
+    [2, 3, 20, 2]
+]
+
+inventory = 3
+
+from collections import deque, defaultdict
+
+def unallocated_users(requests,total_inventory):
+    allocated = defaultdict(int)
+    print("Allocated ",allocated)
+    
+    requested = defaultdict(int)
+    
+    for customer_id,qty,bid,time in requests:
+        requested[customer_id] += qty
+    
+    requests.sort(key=lambda x: (-x[2],x[3],x[0]))
+    
+    print("Sorted Reqeusts ",requests)
+    
+    n = len(requests)
+    
+    i = 0
+    while i < n and total_inventory > 0:
+        pass
+        
+        
 if __name__ == "__main__":
-    
-    head = Node(1)
-    head.next = Node(2)
-    head.next.next = Node(3)
-    head.next.next.next = Node(4)
-    head.next.next.next.next = Node(5)
-    
-    
-    print_list(head=head)
-    left = 2
-    right = 4
-    head = reverse_second(head=head,left=left,right=right)
-    print_list(head=head)
-        
+    unallocated_users(requests=requests,total_inventory=inventory)
+
+
+def get_unallotted_users(requests, totalInventory):
+
+    # Track how much each customer received
+    allocated = defaultdict(int)
+
+    # Track original requested quantity
+    requested = defaultdict(int)
+
+    for customerId, qty, bid, timestamp in requests:
+        requested[customerId] += qty
+
+    # Sort:
+    # 1. Higher bid first
+    # 2. Earlier timestamp first
+    # 3. Smaller customerId first (stable tie breaker)
+    requests.sort(key=lambda x: (-x[2], x[3], x[0]))
+
+    n = len(requests)
+    i = 0
+
+    while i < n and totalInventory > 0:
+
+        current_bid = requests[i][2]
+
+        # Collect all customers with same bid
+        same_bid_group = []
+
+        while i < n and requests[i][2] == current_bid:
+
+            customerId, qty, bid, timestamp = requests[i]
+
+            # Ignore invalid qty
+            if qty > 0:
+                same_bid_group.append(
+                    [customerId, qty]
+                )
+
+            i += 1
+
+        # If no customers in this group
+        if not same_bid_group:
+            continue
+
+        # Total qty needed by this bid group
+        total_needed = sum(qty for _, qty in same_bid_group)
+
+        # --------------------------------------------------
+        # CASE 1:
+        # Enough inventory for whole group
+        # --------------------------------------------------
+        if totalInventory >= total_needed:
+
+            for customerId, qty in same_bid_group:
+                allocated[customerId] += qty
+                totalInventory -= qty
+
+        # --------------------------------------------------
+        # CASE 2:
+        # Not enough inventory -> round robin
+        # --------------------------------------------------
+        else:
+
+            q = deque(same_bid_group)
+
+            while q and totalInventory > 0:
+
+                customerId, qty = q.popleft()
+
+                # Allocate 1 item
+                allocated[customerId] += 1
+                qty -= 1
+                totalInventory -= 1
+
+                # Put back if still needs inventory
+                if qty > 0:
+                    q.append([customerId, qty])
+
+    # ------------------------------------------------------
+    # RETURN USERS WHO GOT NOTHING
+    # ------------------------------------------------------
+    result = []
+
+    for customerId in requested:
+
+        if allocated[customerId] == 0:
+            result.append(customerId)
+
+    return sorted(result)

@@ -1,107 +1,109 @@
 # ++++++++++++++++++++++++++++++++++++++ (24/11/25) Simple array implementation of Queue ++++++++++++++++++++++++++++++++++++++++
-# class MyQueue:
-#     def __init__(self,capacity):
+class MyQueue:
+    def __init__(self,capacity):
         
         
-#         # Maximum number of elements a queue can store
-#         self.capacity = capacity
+        # Maximum number of elements a queue can store
+        self.capacity = capacity
         
-#         #  Array to store queue elements
-#         self.arr = [0] * capacity
-        
-        
-#         # Current number of elements in the queue
-#         self.size = 0
-        
-    
-    
-    
-#     # traverse Queue
-#     def traverse_queue(self):
-#         if self.size == 0:
-#             print("Queue is empty can`t perform this operation")
-#             return
-#         for i in range(0,self.size):
-#             print(self.arr[i],end=" ")
-#         print()
-        
-    
-#     # Enqueue (Insert)
-    
-#     def enqueue(self,element):
-#         ''''
-#         if number of elements is greater than the capacity then 
-#         print "Queue is overflowed"
-#         '''
-#         if self.size == self.capacity:
-#             print("Queue Overflowed")
-#             return
-        
-#         self.arr[self.size] = element
-#         self.size += 1
-        
-#     # Dequeue () Remove element from the front
-    
-#     def dequeue(self):
-#         if self.size == 0:
-#             print("Queue is underflowed")
-#             return
-#         for i in range(1,self.size):
-#             self.arr[i - 1] = self.arr[i]
-#         self.size -= 1
+        #  Array to store queue elements
+        self.arr = [0] * capacity
         
         
-#     # Get front element (peek)
-#     def get_front(self):
-#         if self.size == 0:
-#             print("Queue is empty")
-#             return -1
-#         return self.arr[0]
-    
-    
-#     # get last element
-#     def get_rear(self):
-#         if self.size == 0:
-#             print("Queue is empty")
-#             return -1
-#         return self.arr[self.size -1]
-    
-#     # print element from the given position 
-#     def get_elem_at_pos(self,pos):
-#         if pos > self.capacity:
-#             print("The given position is greater than the total capacity")
-#             return
-#         if pos > self.size:
-#             print("the given position is greater than the totoal size of the elements")
+        # Current number of elements in the queue
+        self.size = 0
         
-#         return self.arr[pos]
+    
+    
+    
+    # traverse Queue
+    def traverse_queue(self):
+        if self.size == 0:
+            print("Queue is empty can`t perform this operation")
+            return
+        for i in range(0,self.size):
+            print(self.arr[i],end=" ")
+        print()
+        
+    
+    # Enqueue (Insert)
+    
+    def enqueue(self,element):
+        ''''
+        if number of elements is greater than the capacity then 
+        print "Queue is overflowed"
+        '''
+        if self.size == self.capacity:
+            print("Queue Overflowed")
+            return
+        
+        self.arr[self.size] = element
+        self.size += 1
+        
+    # Dequeue () Remove element from the front
+    
+    def dequeue(self):
+        if self.size == 0:
+            print("Queue is underflowed")
+            return
+        elem = self.arr[0]
+        for i in range(1,self.size):
+            self.arr[i - 1] = self.arr[i]
+        self.size -= 1
+        return elem
+        
+        
+    # Get front element (peek)
+    def get_front(self):
+        if self.size == 0:
+            print("Queue is empty")
+            return -1
+        return self.arr[0]
+    
+    
+    # get last element
+    def get_rear(self):
+        if self.size == 0:
+            print("Queue is empty")
+            return -1
+        return self.arr[self.size -1]
+    
+    # print element from the given position 
+    def get_elem_at_pos(self,pos):
+        if pos > self.capacity:
+            print("The given position is greater than the total capacity")
+            return
+        if pos > self.size:
+            print("the given position is greater than the totoal size of the elements")
+        
+        return self.arr[pos]
     
     
     
     
-#     '''
-#     check if the queue is empty return true, else false
-#     '''
-#     def is_empty(self):
-#         return self.size == 0
+    '''
+    check if the queue is empty return true, else false
+    '''
+    def is_empty(self):
+        return self.size == 0
     
     
-#     '''
-#     chekc if the queue is full return true , else false
-#     '''
-#     def is_full(self):
-#         return self.size == self.capacity
+    '''
+    chekc if the queue is full return true , else false
+    '''
+    def is_full(self):
+        return self.size == self.capacity
     
     
 
-# if __name__ == "__main__":
-#     q = MyQueue(3)
-#     q.enqueue(10)
-#     q.enqueue(20)
-#     q.enqueue(30)
-#     position = 3
+if __name__ == "__main__":
+    q = MyQueue(3)
+    q.enqueue(10)
+    q.enqueue(20)
+    q.enqueue(30)
+    position = 3
     
-#     print(f"The element at postion {position} is {q.get_elem_at_pos(position)} ")
+    print(f"The element at postion {position} is {q.get_elem_at_pos(position)} ")
 
 
 
