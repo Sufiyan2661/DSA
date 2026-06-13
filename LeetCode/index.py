@@ -1,5 +1,5 @@
 """
-Q1 lareget substring palindrom
+Q1 lareget substring palindrome
 """
 
 s = "babad"
@@ -1116,128 +1116,124 @@ Maximum Sum Subarray of Size K
 #     print("Max of sub arrays ", max_sub_arr(arr=arr, k=k))
 
 
-
-'''
+"""
 Given strings s and p, find all start indices of p's anagrams in s.
-'''
+"""
 
 # def anagrams(s:str,p:str):
 #     p_len = len(p)
 #     s_len = len(s)
-    
+
 #     p_count = {}
 #     s_count = {}
 #     res = []
-    
+
 #     for i in range(p_len):
 #         p_count[p[i]] = p_count.get(p[i],0) + 1
 #         s_count[s[i]] = s_count.get(s[i],0) + 1
-        
-    
+
+
 #     if p_count == s_count:
 #         res.append(0)
-    
-    
-#     # sliding window 
+
+
+#     # sliding window
 #     for i in range(p_len,s_len):
 #         char_in = s[i]
 #         s_count[char_in] = s_count.get(char_in,0) + 1
-        
+
 #         # print("S count ",s_count)
 #         char_out = s[i - p_len]
 #         s_count[char_out] -= 1
-        
-        
+
+
 #         if s_count[char_out] == 0:
 #             del s_count[char_out]
-        
-        
+
+
 #         if s_count == p_count:
 #             res.append(i - p_len + 1)
-            
+
 #     print("Result ",res)
-        
-        
-    
+
+
 # if __name__ == "__main__":
 #     s = "cbaebabacd"
 #     p = "abc"
 #     anagrams(s=s,p=p)
 
 
-
-'''
+"""
 Permutation in String (LeetCode 567)
 
 Problem: Given two strings s1 and s2, return true if s2 contains a permutation of s1.
-'''
+"""
 
 # def permuation(s1:str,s2:str) -> bool:
 #     s1_len = len(s1)
 #     s2_len = len(s2)
 #     if s1_len > s2_len:
 #         return False
-    
+
 #     s1_count = {}
 #     s2_count = {}
-    
+
 #     for i in range(s1_len):
-        
+
 #         s1_count[s1[i]] = s1_count.get(s1[i],0) + 1
 #         s2_count[s2[i]] = s2_count.get(s2[i],0) + 1
 #     if s1_count == s2_count:
 #         return True
-    
+
 #     for i in range(s1_len,s2_len):
-        
+
 #         char_in = s2[i]
 #         s2_count[char_in] = s2_count.get(char_in,0) + 1
-        
-        
+
+
 #         char_out = s2[i - s1_len]
 #         s2_count[char_out] -= 1
-        
+
 #         if s2_count[char_out] ==0:
 #             del s2_count[char_out]
-        
-        
+
+
 #         if s1_count == s2_count:
 #             return True
-    
+
 #     return False
-    
-    
+
+
 # if __name__ == "__main__":
 #     s1 = "hello"
 #     s2 = "ooolleoooleh"
 #     print("Result ",permuation(s1=s1,s2=s2))
 
 
-
-'''
+"""
  Sliding Window Maximum (LeetCode 239)
-'''
+"""
 # from collections import deque
 # def window_max(arr:list,k:int)->int:
 #     dq = deque()
 #     n  = len(arr)
 #     res = []
-    
-    
+
+
 #     for i in range(n):
-        
+
 #         while dq and arr[dq[-1]] < arr[i]:
 #             dq.pop()
-        
+
 #         dq.append(i)
 #     print("value of dq ",dq)
 #     if dq[0] == i - k:
 #         dq.popleft()
-        
+
 #     if i >= k - 1:
 #         res.append(arr[dq[0]])
 #     print("Value of result ",res)
-        
+
 
 # if __name__ == "__main__":
 #     nums = [1, 3, -1, -3, 5, 3, 6, 7]
@@ -1246,153 +1242,310 @@ Problem: Given two strings s1 and s2, return true if s2 contains a permutation o
 #     window_max(arr=nums,k=k)
 
 
-
-'''
+"""
 . Longest Substring Without Repeating Characters (LeetCode 3)
-'''
-    
+"""
+
 # def logest_unique_substring(s:str) -> int:
 #     char_set = set()
-    
+
 #     left = 0
 #     max_length = 0
-    
+
 #     for right in range(len(s)):
-        
+
 #         while s[right] in char_set:
 #             char_set.remove(s[left])
 #             left += 1
-            
+
 #         char_set.add(s[right])
-        
-        
+
+
 #         current_window_size = right - left + 1
 #         max_length = max(max_length,current_window_size)
-        
+
 #     return max_length
 
 
 # if __name__ == "__main__":
 #     s = "abcabcbb"
 #     print("Ans ",logest_unique_substring(s=s))
-requests = [
-    [1, 2, 10, 1],
-    [2, 3, 20, 2]
-]
+# requests = [
+#     [1, 2, 10, 1],
+#     [2, 3, 20, 2]
+# ]
 
-inventory = 3
+# inventory = 3
 
-from collections import deque, defaultdict
+# from collections import deque, defaultdict
 
-def unallocated_users(requests,total_inventory):
-    allocated = defaultdict(int)
-    print("Allocated ",allocated)
+# def unallocated_users(requests,total_inventory):
+#     allocated = defaultdict(int)
+#     print("Allocated ",allocated)
+
+#     requested = defaultdict(int)
+
+#     for customer_id,qty,bid,time in requests:
+#         requested[customer_id] += qty
+
+#     requests.sort(key=lambda x: (-x[2],x[3],x[0]))
+
+#     print("Sorted Reqeusts ",requests)
+
+#     n = len(requests)
+
+#     i = 0
+#     while i < n and total_inventory > 0:
+#         pass
+
+
+# if __name__ == "__main__":
+#     unallocated_users(requests=requests,total_inventory=inventory)
+
+
+# def get_unallotted_users(requests, totalInventory):
+
+#     # Track how much each customer received
+#     allocated = defaultdict(int)
+
+#     # Track original requested quantity
+#     requested = defaultdict(int)
+
+#     for customerId, qty, bid, timestamp in requests:
+#         requested[customerId] += qty
+
+#     # Sort:
+#     # 1. Higher bid first
+#     # 2. Earlier timestamp first
+#     # 3. Smaller customerId first (stable tie breaker)
+#     requests.sort(key=lambda x: (-x[2], x[3], x[0]))
+
+#     n = len(requests)
+#     i = 0
+
+#     while i < n and totalInventory > 0:
+
+#         current_bid = requests[i][2]
+
+#         # Collect all customers with same bid
+#         same_bid_group = []
+
+#         while i < n and requests[i][2] == current_bid:
+
+#             customerId, qty, bid, timestamp = requests[i]
+
+#             # Ignore invalid qty
+#             if qty > 0:
+#                 same_bid_group.append(
+#                     [customerId, qty]
+#                 )
+
+#             i += 1
+
+#         # If no customers in this group
+#         if not same_bid_group:
+#             continue
+
+#         # Total qty needed by this bid group
+#         total_needed = sum(qty for _, qty in same_bid_group)
+
+#         # --------------------------------------------------
+#         # CASE 1:
+#         # Enough inventory for whole group
+#         # --------------------------------------------------
+#         if totalInventory >= total_needed:
+
+#             for customerId, qty in same_bid_group:
+#                 allocated[customerId] += qty
+#                 totalInventory -= qty
+
+#         # --------------------------------------------------
+#         # CASE 2:
+#         # Not enough inventory -> round robin
+#         # --------------------------------------------------
+#         else:
+
+#             q = deque(same_bid_group)
+
+#             while q and totalInventory > 0:
+
+#                 customerId, qty = q.popleft()
+
+#                 # Allocate 1 item
+#                 allocated[customerId] += 1
+#                 qty -= 1
+#                 totalInventory -= 1
+
+#                 # Put back if still needs inventory
+#                 if qty > 0:
+#                     q.append([customerId, qty])
+
+#     # ------------------------------------------------------
+#     # RETURN USERS WHO GOT NOTHING
+#     # ------------------------------------------------------
+#     result = []
+
+#     for customerId in requested:
+
+#         if allocated[customerId] == 0:
+#             result.append(customerId)
+
+#     return sorted(result)
+
+
+"""
+32 : Paranthesis
+n = 3
+op = ["((()))","()()()","(())()"]
+n = 1
+op = ["()"]
+"""
+
+# def generate(n, curr="", open_count=0, close_count=0,result = None):
+#     if result is None:
+#         result = []
+
+#     if len(curr) == 2 * n:
+#         result.append(curr)
+#         return result
+
+#     if open_count < n:
+#         generate(n, curr + "(", open_count + 1, close_count,result)
+
+#     if close_count < open_count:
+#         generate(n, curr + ")", open_count, close_count + 1,result)
+
+
+#     print("length of result ",len(result))
+#     return result
+
+
+# if __name__ == "__main__":
+
+#     n = 3
+#     result = generate(n)
+#     print("Result ",result)
+
+
+# def find_error_nums(arr:list[int])->None:
+#     error_num = 0
+#     actual_num = 0
+#     for i in range(len(arr)):
+#         print("Number ",arr[i])
+#         print("Compare Number ",i + 1)
+#         if arr[i] != i+1:
+#             error_num = arr[i]
+#             actual_num = i + 1
+#     print("Error Num ",error_num)
+#     print("Actual Num ",actual_num)
+
+
+# if __name__ == "__main__":
+#     arr = [1,1]
+#     find_error_nums(arr=arr)
+
+
+"""
+Build an Array With Stack Operations
+"""
+
+
+class MyStack:
+    def __init__(self, capacity):
+
+        self.arr = [0] * capacity
+
+        self.capacity = capacity
+
+        self.top = -1
+
+    def push(self, data):
+        if self.top == self.capacity - 1:
+            print("You can`t add more element than that")
+            return
+        self.top += 1
+        self.arr[self.top] = data
+
+    def pop(self):
+        if self.top == -1:
+            print("Stack is empty")
+            return
+        value = self.arr[self.top]
+        self.top -= 1
+        return value
+
+    def is_empty(self):
+        return self.top == -1
     
-    requested = defaultdict(int)
     
-    for customer_id,qty,bid,time in requests:
-        requested[customer_id] += qty
+    def get_top(self):
+        return self.arr[self.top]
+
+
+# def build_array_with_stack(arr: list[int], n: int) -> list[str]:
+#     last_element = arr[len(arr) - 1]
+#     st = MyStack(last_element)
+#     res = []
+#     for i in range(1,last_element + 1):
+#         st.push(i)
+#         res.append("Push")
+#         if st.get_top() != arr[st.top]:
+#             st.pop()
+#             res.append("Pop")
     
-    requests.sort(key=lambda x: (-x[2],x[3],x[0]))
-    
-    print("Sorted Reqeusts ",requests)
-    
-    n = len(requests)
-    
-    i = 0
-    while i < n and total_inventory > 0:
-        pass
+#     print("Result ",res)
         
-        
-if __name__ == "__main__":
-    unallocated_users(requests=requests,total_inventory=inventory)
+            
 
 
-def get_unallotted_users(requests, totalInventory):
+# if __name__ == "__main__":
+#     arr = [1,2]
+#     n = 3
+#     build_array_with_stack(arr=arr,n=n)
+#     pass
 
-    # Track how much each customer received
-    allocated = defaultdict(int)
 
-    # Track original requested quantity
-    requested = defaultdict(int)
+'''
+You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
 
-    for customerId, qty, bid, timestamp in requests:
-        requested[customerId] += qty
+Evaluate the expression. Return an integer that represents the value of the expression.
 
-    # Sort:
-    # 1. Higher bid first
-    # 2. Earlier timestamp first
-    # 3. Smaller customerId first (stable tie breaker)
-    requests.sort(key=lambda x: (-x[2], x[3], x[0]))
+Note that:
 
-    n = len(requests)
-    i = 0
+The valid operators are '+', '-', '*', and '/'.
+Each operand may be an integer or another expression.
+The division between two integers always truncates toward zero.
+There will not be any division by zero.
+The input represents a valid arithmetic expression in a reverse polish notation.
+The answer and all the intermediate calculations can be represented in a 32-bit integer.
+'''
 
-    while i < n and totalInventory > 0:
 
-        current_bid = requests[i][2]
+import operator
 
-        # Collect all customers with same bid
-        same_bid_group = []
-
-        while i < n and requests[i][2] == current_bid:
-
-            customerId, qty, bid, timestamp = requests[i]
-
-            # Ignore invalid qty
-            if qty > 0:
-                same_bid_group.append(
-                    [customerId, qty]
-                )
-
-            i += 1
-
-        # If no customers in this group
-        if not same_bid_group:
-            continue
-
-        # Total qty needed by this bid group
-        total_needed = sum(qty for _, qty in same_bid_group)
-
-        # --------------------------------------------------
-        # CASE 1:
-        # Enough inventory for whole group
-        # --------------------------------------------------
-        if totalInventory >= total_needed:
-
-            for customerId, qty in same_bid_group:
-                allocated[customerId] += qty
-                totalInventory -= qty
-
-        # --------------------------------------------------
-        # CASE 2:
-        # Not enough inventory -> round robin
-        # --------------------------------------------------
+def trunc_div(a,b):
+    return int(a / b)
+ 
+def eval_rpn(arr:list[str]) -> int:
+    operators = {
+        "+":operator.add,
+        "-":operator.sub,
+        "*":operator.mul,
+        "/":trunc_div
+    }    
+    s = MyStack(len(arr))
+    for elem in arr:
+        if elem.lstrip("-").isdigit():
+            s.push(int(elem))
         else:
+            right = s.pop()
+            left = s.pop()           
+            result = operators[elem](left,right)
+            print("Result ",result)
+            s.push(result)
+    print("Stack ",s.get_top())
+                
 
-            q = deque(same_bid_group)
-
-            while q and totalInventory > 0:
-
-                customerId, qty = q.popleft()
-
-                # Allocate 1 item
-                allocated[customerId] += 1
-                qty -= 1
-                totalInventory -= 1
-
-                # Put back if still needs inventory
-                if qty > 0:
-                    q.append([customerId, qty])
-
-    # ------------------------------------------------------
-    # RETURN USERS WHO GOT NOTHING
-    # ------------------------------------------------------
-    result = []
-
-    for customerId in requested:
-
-        if allocated[customerId] == 0:
-            result.append(customerId)
-
-    return sorted(result)
+if __name__ == "__main__":
+    arr = ["4","13","5","/","+"] #["10","6","9","3","+","-11","*","/","*","17","+","5","+"] #["4","13","5","/","+"]
+    eval_rpn(arr=arr)
