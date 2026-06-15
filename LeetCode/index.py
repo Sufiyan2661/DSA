@@ -1521,31 +1521,105 @@ The answer and all the intermediate calculations can be represented in a 32-bit 
 '''
 
 
-import operator
+# import operator
 
-def trunc_div(a,b):
-    return int(a / b)
+# def trunc_div(a,b):
+#     return int(a / b)
  
-def eval_rpn(arr:list[str]) -> int:
-    operators = {
-        "+":operator.add,
-        "-":operator.sub,
-        "*":operator.mul,
-        "/":trunc_div
-    }    
-    s = MyStack(len(arr))
-    for elem in arr:
-        if elem.lstrip("-").isdigit():
-            s.push(int(elem))
-        else:
-            right = s.pop()
-            left = s.pop()           
-            result = operators[elem](left,right)
-            print("Result ",result)
-            s.push(result)
-    print("Stack ",s.get_top())
+# def eval_rpn(arr:list[str]) -> int:
+#     operators = {
+#         "+":operator.add,
+#         "-":operator.sub,
+#         "*":operator.mul,
+#         "/":trunc_div
+#     }    
+#     s = MyStack(len(arr))
+#     for elem in arr:
+#         if elem.lstrip("-").isdigit():
+#             s.push(int(elem))
+#         else:
+#             right = s.pop()
+#             left = s.pop()           
+#             result = operators[elem](left,right)
+#             print("Result ",result)
+#             s.push(result)
+#     print("Stack ",s.get_top())
                 
 
+# if __name__ == "__main__":
+#     arr = ["4","13","5","/","+"] #["10","6","9","3","+","-11","*","/","*","17","+","5","+"] #["4","13","5","/","+"]
+#     eval_rpn(arr=arr)
+
+
+
+'''
+2095. Delete the Middle Node of a Linked List
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.
+
+The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x.
+
+For n = 1, 2, 3, 4, and 5, the middle nodes are 0, 1, 1, 2, and 2, respectively.
+Input: head = [1,3,4,7,1,2,6]
+Output: [1,3,4,1,2,6]
+Input: head = [1,2,3,4]
+Output: [1,2,4]
+'''
+import math
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+
+
+def print_list(head:Node) -> None:
+    current = head
+    while current:
+        print(current.data,end=" ")
+        current = current.next
+    
+
+def delete_middle_node(head:Node) -> Node:
+    current = head
+    count = 0
+    while current:
+        current = current.next
+        count += 1
+    
+    middle = math.ceil(count / 2)
+    print("Middle ",middle) 
+    
+    i = 0
+    current = head
+    prev = current
+    while i < middle :
+        prev = current
+        current = current.next
+        i += 1
+        
+        
+    print("Target Node ",current.data)
+    print("Node before target node ",prev.data)
+    print("Node after target node ",current.next.data)
+    prev.next = current.next
+    return head
+
+
+
 if __name__ == "__main__":
-    arr = ["4","13","5","/","+"] #["10","6","9","3","+","-11","*","/","*","17","+","5","+"] #["4","13","5","/","+"]
-    eval_rpn(arr=arr)
+    # [1,3,4,7,1,2,6], [1,3]
+    head = Node(1)
+    head.next = Node(2)
+    head.next.next = Node(3)
+    head.next.next.next = Node(4)
+    
+    print_list(head=head)
+    head = delete_middle_node(head=head)
+    print()
+    print_list(head=head)
+    
