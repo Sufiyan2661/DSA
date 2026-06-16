@@ -1092,7 +1092,7 @@ Output: [5]
 
 
 """
-Maximum Sum Subarray of Size K
+22 Maximum Sum Subarray of Size K
 """
 
 
@@ -1117,7 +1117,7 @@ Maximum Sum Subarray of Size K
 
 
 """
-Given strings s and p, find all start indices of p's anagrams in s.
+23 Given strings s and p, find all start indices of p's anagrams in s.
 """
 
 # def anagrams(s:str,p:str):
@@ -1164,7 +1164,7 @@ Given strings s and p, find all start indices of p's anagrams in s.
 
 
 """
-Permutation in String (LeetCode 567)
+24 Permutation in String (LeetCode 567)
 
 Problem: Given two strings s1 and s2, return true if s2 contains a permutation of s1.
 """
@@ -1211,7 +1211,7 @@ Problem: Given two strings s1 and s2, return true if s2 contains a permutation o
 
 
 """
- Sliding Window Maximum (LeetCode 239)
+25 Sliding Window Maximum (LeetCode 239)
 """
 # from collections import deque
 # def window_max(arr:list,k:int)->int:
@@ -1243,7 +1243,7 @@ Problem: Given two strings s1 and s2, return true if s2 contains a permutation o
 
 
 """
-. Longest Substring Without Repeating Characters (LeetCode 3)
+26. Longest Substring Without Repeating Characters (LeetCode 3)
 """
 
 # def logest_unique_substring(s:str) -> int:
@@ -1394,7 +1394,7 @@ Problem: Given two strings s1 and s2, return true if s2 contains a permutation o
 
 
 """
-32 : Paranthesis
+27 : Paranthesis
 n = 3
 op = ["((()))","()()()","(())()"]
 n = 1
@@ -1446,40 +1446,40 @@ op = ["()"]
 
 
 """
-Build an Array With Stack Operations
+28 Build an Array With Stack Operations
 """
 
 
-class MyStack:
-    def __init__(self, capacity):
+# class MyStack:
+#     def __init__(self, capacity):
 
-        self.arr = [0] * capacity
+#         self.arr = [0] * capacity
 
-        self.capacity = capacity
+#         self.capacity = capacity
 
-        self.top = -1
+#         self.top = -1
 
-    def push(self, data):
-        if self.top == self.capacity - 1:
-            print("You can`t add more element than that")
-            return
-        self.top += 1
-        self.arr[self.top] = data
+#     def push(self, data):
+#         if self.top == self.capacity - 1:
+#             print("You can`t add more element than that")
+#             return
+#         self.top += 1
+#         self.arr[self.top] = data
 
-    def pop(self):
-        if self.top == -1:
-            print("Stack is empty")
-            return
-        value = self.arr[self.top]
-        self.top -= 1
-        return value
+#     def pop(self):
+#         if self.top == -1:
+#             print("Stack is empty")
+#             return
+#         value = self.arr[self.top]
+#         self.top -= 1
+#         return value
 
-    def is_empty(self):
-        return self.top == -1
+#     def is_empty(self):
+#         return self.top == -1
     
     
-    def get_top(self):
-        return self.arr[self.top]
+#     def get_top(self):
+#         return self.arr[self.top]
 
 
 # def build_array_with_stack(arr: list[int], n: int) -> list[str]:
@@ -1506,7 +1506,7 @@ class MyStack:
 
 
 '''
-You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
+29 You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
 
 Evaluate the expression. Return an integer that represents the value of the expression.
 
@@ -1553,12 +1553,7 @@ The answer and all the intermediate calculations can be represented in a 32-bit 
 
 
 '''
-2095. Delete the Middle Node of a Linked List
-Medium
-Topics
-premium lock icon
-Companies
-Hint
+30. Delete the Middle Node of a Linked List
 You are given the head of a linked list. Delete the middle node, and return the head of the modified linked list.
 
 The middle node of a linked list of size n is the ⌊n / 2⌋th node from the start using 0-based indexing, where ⌊x⌋ denotes the largest integer less than or equal to x.
@@ -1569,57 +1564,186 @@ Output: [1,3,4,1,2,6]
 Input: head = [1,2,3,4]
 Output: [1,2,4]
 '''
-import math
-class Node:
-    def __init__(self,data):
-        self.data = data
-        self.next = None
+# import math
+# class Node:
+#     def __init__(self,data):
+#         self.data = data
+#         self.next = None
 
 
 
-def print_list(head:Node) -> None:
-    current = head
-    while current:
-        print(current.data,end=" ")
-        current = current.next
+# def print_list(head:Node) -> None:
+#     current = head
+#     while current:
+#         print(current.data,end=" ")
+#         current = current.next
     
 
-def delete_middle_node(head:Node) -> Node:
-    current = head
-    count = 0
-    while current:
-        current = current.next
-        count += 1
+# def delete_middle_node(head:Node) -> Node:
+#     current = head
+#     count = 0
+#     while current:
+#         current = current.next
+#         count += 1
     
-    middle = math.ceil(count / 2)
-    print("Middle ",middle) 
+#     middle = math.ceil(count / 2)
+#     print("Middle ",middle) 
     
-    i = 0
-    current = head
-    prev = current
-    while i < middle :
-        prev = current
-        current = current.next
-        i += 1
+#     i = 0
+#     current = head
+#     prev = current
+#     while i < middle :
+#         prev = current
+#         current = current.next
+#         i += 1
+        
+#     prev.next = current.next
+#     return head
+
+
+
+# if __name__ == "__main__":
+#     # [1,3,4,7,1,2,6], [1,3]
+#     head = Node(1)
+#     head.next = Node(2)
+#     head.next.next = Node(3)
+#     head.next.next.next = Node(4)
+    
+#     print_list(head=head)
+#     head = delete_middle_node(head=head)
+#     print()
+#     print_list(head=head)
+
+
+
+'''
+31 Substring with Concatenation of All Words
+You are given a string s and an array of strings words. All the strings of words are of the same length.
+
+A concatenated string is a string that exactly contains all the strings of any permutation of words concatenated.
+
+For example, if words = ["ab","cd","ef"], then "abcdef", "abefcd", "cdabef", "cdefab", "efabcd", and "efcdab" are all concatenated strings. "acdbef" is not a concatenated string because it is not the concatenation of any permutation of words.
+Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: s = "barfoothefoobarman", words = ["foo","bar"]
+
+Output: [0,9]
+
+Explanation:
+
+The substring starting at 0 is "barfoo". It is the concatenation of ["bar","foo"] which is a permutation of words.
+The substring starting at 9 is "foobar". It is the concatenation of ["foo","bar"] which is a permutation of words.
+
+Example 2:
+
+Input: s = "wordgoodgoodgoodbestword", words = ["word","good","best","word"]
+
+Output: []
+
+Explanation:
+
+There is no concatenated substring.
+
+Example 3:
+
+Input: s = "barfoofoobarthefoobarman", words = ["bar","foo","the"]
+
+Output: [6,9,12]
+
+Explanation:
+
+The substring starting at 6 is "foobarthe". It is the concatenation of ["foo","bar","the"].
+The substring starting at 9 is "barthefoo". It is the concatenation of ["bar","the","foo"].
+The substring starting at 12 is "thefoobar". It is the concatenation of ["the","foo","bar"].
+Constraints:
+1 <= s.length <= 104
+1 <= words.length <= 5000
+1 <= words[i].length <= 30
+s and words[i] consist of lowercase English letters.
+'''
+
+
+
+# Naive approach using permtaion
+# def substring_indexes(st:str,words:list[str]) -> list[int]:
+#     result = []
+    
+    
+#     def backtracking(path,used):
+        
+#         if len(path) == len(words):
+#             result.append("".join(path))
+#             return
         
         
-    print("Target Node ",current.data)
-    print("Node before target node ",prev.data)
-    print("Node after target node ",current.next.data)
-    prev.next = current.next
-    return head
+#         for i in range(len(words)):
+            
+#             if used[i]:
+#                 continue
+            
+#             path.append(words[i])
+#             used[i] = True
+            
+            
+            
+#             backtracking(path,used)
+            
+            
+#             path.pop()
+#             used[i] = False
+        
+    
+    
+#     used = [False] * len(words)
+#     backtracking([],used)
+    
+#     for word in result:
+        
+#         for i in range(len(st)):
+            
+#             chars = ""
+#             for j in range(i,len(st)):
+#                 chars += st[j]
+#                 if chars == word:
+#                     print("indexes ",i)
 
 
-
+# Efficient approach using hashmap and sliding window 
+def substring_indexes(st:str,words:list[str]) -> list[int]:
+    indexes = []
+    hash_map = {}
+    word_len = len(words[0])
+    window_size = sum(len(word) for word in words)
+    
+    
+    # Create hashmap with words
+    
+    for word in words:
+        if word in hash_map:
+            hash_map[word] += 1
+        else:
+            hash_map[word] = 1
+            
+    
+    
+    # Window Sliding
+    for i in range(len(st) - window_size + 1):
+        window = st[i : i + window_size]
+        chunks  = []
+        for j in range(0,len(window),word_len):
+            chunks.append(window[j:j + word_len])
+        temp_map = {}
+        for chunk in chunks:
+            temp_map[chunk] = temp_map.get(chunk,0) + 1
+        if temp_map == hash_map:
+            indexes.append(i)
+    print("Indexes ",indexes)
 if __name__ == "__main__":
-    # [1,3,4,7,1,2,6], [1,3]
-    head = Node(1)
-    head.next = Node(2)
-    head.next.next = Node(3)
-    head.next.next.next = Node(4)
+    s = "barfoofoobarthefoobarman"
+    words = ["bar","foo","the"]
     
-    print_list(head=head)
-    head = delete_middle_node(head=head)
-    print()
-    print_list(head=head)
-    
+    substring_indexes(st=s,words=words)
