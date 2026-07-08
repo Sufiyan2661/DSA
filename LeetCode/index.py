@@ -1039,7 +1039,7 @@ Output: [5]
 #         self.data = data
 #         self.next = None
 
-# def reverse_second(head:Node,left:int,right:int) -> Node:
+# def reverse_second(head:Node,left:int,Paright:int) -> Node:
 
 #     if head is None:
 #         return head
